@@ -13,7 +13,7 @@ import 'prismjs/components/prism-markup';
  * Initializes Prism.js syntax highlighting
  */
 export const initPrism = () => {
-  if (typeof document !== 'undefined') {
+  if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     Prism.highlightAll();
   }
 };
@@ -23,7 +23,7 @@ export const initPrism = () => {
  * @param element - The DOM element to highlight
  */
 export const highlightElement = (element: Element) => {
-  if (element) {
+  if (element && typeof Prism !== 'undefined') {
     Prism.highlightElement(element);
   }
 };
@@ -35,6 +35,8 @@ export const highlightElement = (element: Element) => {
  * @returns Formatted HTML string with syntax highlighting
  */
 export const formatCode = (code: string, language: string = 'javascript'): string => {
+  if (typeof Prism === 'undefined') return code;
+  
   const highlighted = Prism.highlight(
     code.trim(),
     Prism.languages[language] || Prism.languages.javascript,
