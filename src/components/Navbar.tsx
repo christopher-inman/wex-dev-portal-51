@@ -50,7 +50,9 @@ const Navbar: React.FC = () => {
     <nav 
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4',
-        isScrolled ? 'bg-background/90 backdrop-blur-md shadow-sm border-b border-border/50' : 'bg-transparent'
+        isScrolled 
+          ? 'bg-background/90 dark:bg-background/90 backdrop-blur-md shadow-sm border-b border-border/50' 
+          : 'bg-transparent'
       )}
     >
       <div className="container-custom">
@@ -58,7 +60,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center">
               <span className="text-2xl font-bold text-wex-red dark:text-wex-red">WEX</span>
-              <span className="ml-2 text-lg font-medium text-foreground/90">Developer Portal</span>
+              <span className="ml-2 text-lg font-medium text-foreground">Developer Portal</span>
             </a>
           </div>
 
@@ -69,7 +71,7 @@ const Navbar: React.FC = () => {
                 <div key={item.name} className="relative group">
                   <a
                     href={item.href}
-                    className="nav-link group flex items-center"
+                    className="nav-link group flex items-center text-foreground hover:text-wex-red transition-colors duration-200"
                     onClick={item.hasChildren ? (e) => {
                       e.preventDefault();
                       handleDropdownToggle(item.name);
@@ -88,7 +90,7 @@ const Navbar: React.FC = () => {
                   {item.hasChildren && (
                     <div 
                       className={cn(
-                        "absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-background ring-1 ring-black/5 transition-all duration-200 origin-top-left",
+                        "absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-background dark:bg-background ring-1 ring-black/5 dark:ring-white/10 transition-all duration-200 origin-top-left",
                         openDropdown === item.name ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                       )}
                     >
@@ -136,12 +138,12 @@ const Navbar: React.FC = () => {
           "md:hidden transition-all duration-300 ease-in-out overflow-hidden",
           isMenuOpen ? "max-h-[500px] opacity-100 mt-4" : "max-h-0 opacity-0"
         )}>
-          <div className="pt-2 pb-4 space-y-1 bg-background rounded-lg shadow-lg">
+          <div className="pt-2 pb-4 space-y-1 bg-background dark:bg-background rounded-lg shadow-lg">
             {navigationItems.map((item) => (
               <div key={item.name} className="px-4">
                 <button
                   onClick={() => item.hasChildren ? handleDropdownToggle(item.name) : null}
-                  className="w-full flex justify-between items-center py-2 text-base font-medium text-foreground/90 hover:text-accent transition-colors duration-200"
+                  className="w-full flex justify-between items-center py-2 text-base font-medium text-foreground hover:text-accent transition-colors duration-200"
                 >
                   <a href={item.href}>{item.name}</a>
                   {item.hasChildren && (
