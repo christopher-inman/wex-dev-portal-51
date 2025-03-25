@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Button from './Button';
+import { ThemeToggle } from './ThemeToggle';
 
 const navigationItems = [
   { name: 'APIs', href: '#apis', hasChildren: true, children: [
@@ -49,14 +50,14 @@ const Navbar: React.FC = () => {
     <nav 
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4',
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-background/90 backdrop-blur-md shadow-sm border-b border-border/50' : 'bg-transparent'
       )}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <a href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-wex-blue">WEX</span>
+              <span className="text-2xl font-bold text-wex-red dark:text-wex-red">WEX</span>
               <span className="ml-2 text-lg font-medium text-foreground/90">Developer Portal</span>
             </a>
           </div>
@@ -87,7 +88,7 @@ const Navbar: React.FC = () => {
                   {item.hasChildren && (
                     <div 
                       className={cn(
-                        "absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black/5 transition-all duration-200 origin-top-left",
+                        "absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-background ring-1 ring-black/5 transition-all duration-200 origin-top-left",
                         openDropdown === item.name ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                       )}
                     >
@@ -96,7 +97,7 @@ const Navbar: React.FC = () => {
                           <a
                             key={child.name}
                             href={child.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-accent transition-colors duration-200"
+                            className="block px-4 py-2 text-sm text-foreground hover:bg-accent/10 hover:text-accent-foreground transition-colors duration-200"
                           >
                             {child.name}
                           </a>
@@ -108,13 +109,15 @@ const Navbar: React.FC = () => {
               ))}
             </div>
             <div className="flex items-center space-x-4">
+              <ThemeToggle />
               <Button variant="secondary" size="sm">Sign In</Button>
               <Button variant="primary" size="sm">Get Started</Button>
             </div>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-3">
+            <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-md text-foreground"
@@ -133,7 +136,7 @@ const Navbar: React.FC = () => {
           "md:hidden transition-all duration-300 ease-in-out overflow-hidden",
           isMenuOpen ? "max-h-[500px] opacity-100 mt-4" : "max-h-0 opacity-0"
         )}>
-          <div className="pt-2 pb-4 space-y-1 bg-white rounded-lg shadow-lg">
+          <div className="pt-2 pb-4 space-y-1 bg-background rounded-lg shadow-lg">
             {navigationItems.map((item) => (
               <div key={item.name} className="px-4">
                 <button
