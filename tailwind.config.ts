@@ -58,7 +58,8 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				wex: {
-					blue: '#0063A3',
+					red: '#c8102e',
+					blue: '#253746',
 					lightBlue: '#55a9da',
 					orange: '#F7901E',
 					grey: '#58595B'

@@ -26,8 +26,8 @@ const ApiCard: React.FC<ApiCardProps> = ({
   return (
     <AnimatedCard
       className={cn(
-        'p-6',
-        variant === 'featured' ? 'border-2 border-wex-blue/20' : '',
+        'p-6 relative overflow-visible',
+        variant === 'featured' ? 'border-2 border-wex-red/20' : '',
         className
       )}
       hoverEffect="lift"
@@ -35,14 +35,16 @@ const ApiCard: React.FC<ApiCardProps> = ({
       onClick={onClick}
     >
       {variant === 'featured' && (
-        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-wex-blue text-white text-xs px-3 py-1 rounded-full font-medium">
+        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-wex-red text-white text-xs px-4 py-1.5 rounded-full font-medium shadow-md">
           Featured
         </div>
       )}
       <div className="flex flex-col h-full">
         <div className={cn(
           "w-12 h-12 rounded-lg flex items-center justify-center mb-4",
-          variant === 'featured' ? 'bg-wex-blue text-white' : 'bg-wex-blue/10 text-wex-blue'
+          variant === 'featured' 
+            ? 'bg-wex-red text-white' 
+            : 'bg-wex-blue/10 text-wex-blue'
         )}>
           <Icon className="w-6 h-6" />
         </div>
@@ -52,7 +54,10 @@ const ApiCard: React.FC<ApiCardProps> = ({
           <ul className="mt-auto space-y-2">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center text-sm text-foreground/80">
-                <span className="w-1.5 h-1.5 bg-wex-blue rounded-full mr-2"></span>
+                <span className={cn(
+                  "w-1.5 h-1.5 rounded-full mr-2",
+                  variant === 'featured' ? 'bg-wex-red' : 'bg-wex-blue'
+                )}></span>
                 {feature}
               </li>
             ))}

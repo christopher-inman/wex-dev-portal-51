@@ -1,121 +1,30 @@
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Button from './Button';
 import { ArrowRight, Code, Database, Key } from 'lucide-react';
 import TransitionContainer from './TransitionContainer';
+import { useEffect, useRef } from 'react';
+import Prism from 'prismjs';
 
 const Hero: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
   useEffect(() => {
-    if (!canvasRef.current) return;
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const resizeCanvas = () => {
-      const { innerWidth, innerHeight } = window;
-      const dpr = window.devicePixelRatio || 1;
-      
-      canvas.width = innerWidth * dpr;
-      canvas.height = Math.min(600, innerHeight * 0.7) * dpr;
-      
-      canvas.style.width = `${innerWidth}px`;
-      canvas.style.height = `${Math.min(600, innerHeight * 0.7)}px`;
-      
-      ctx.scale(dpr, dpr);
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Particle system
-    const particles: {
-      x: number;
-      y: number;
-      radius: number;
-      vx: number;
-      vy: number;
-      color: string;
-    }[] = [];
-
-    const createParticles = () => {
-      const particleCount = Math.min(window.innerWidth / 10, 100);
-      
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 2 + 0.5,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          color: `rgba(85, 169, 218, ${Math.random() * 0.5 + 0.1})`,
-        });
-      }
-    };
-
-    createParticles();
-
-    const animate = () => {
-      if (!ctx) return;
-      
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Update and draw particles
-      particles.forEach((particle) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        
-        // Boundary check
-        if (particle.x < 0 || particle.x > canvas.width / window.devicePixelRatio) {
-          particle.vx = -particle.vx;
-        }
-        
-        if (particle.y < 0 || particle.y > canvas.height / window.devicePixelRatio) {
-          particle.vy = -particle.vy;
-        }
-        
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color;
-        ctx.fill();
-      });
-      
-      // Connect nearby particles with lines
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < 100) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(85, 169, 218, ${0.1 * (1 - distance / 100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-      
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-    };
+    // Initialize Prism for syntax highlighting
+    Prism.highlightAll();
   }, []);
 
   return (
-    <div className="relative overflow-hidden min-h-screen pt-20 flex items-center">
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full z-0"
-      ></canvas>
+    <div className="relative overflow-hidden min-h-screen pt-20 flex items-center bg-gradient-to-b from-slate-50 to-slate-100">
+      {/* Abstract shapes */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-wex-red/5"></div>
+        <div className="absolute top-20 left-20 w-40 h-40 rounded-full bg-wex-blue/5"></div>
+        <div className="absolute bottom-40 right-20 w-60 h-60 rounded-full bg-wex-red/5"></div>
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-wex-blue/5"></div>
+        
+        {/* Accent lines */}
+        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-wex-red/20 to-transparent"></div>
+        <div className="absolute top-2/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-wex-blue/20 to-transparent"></div>
+      </div>
       
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -123,7 +32,7 @@ const Hero: React.FC = () => {
             className="flex flex-col items-start text-left" 
             animation="fade-in-left"
           >
-            <div className="inline-block bg-wex-blue/10 text-wex-blue px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-block bg-wex-red/10 text-wex-red px-4 py-1 rounded-full text-sm font-medium mb-4">
               WEX Developer Portal
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -155,12 +64,21 @@ const Hero: React.FC = () => {
             animation="fade-in-right" 
             delay={300}
           >
-            <div className="relative glass-card rounded-2xl p-6 w-full max-w-lg">
-              <div className="absolute -top-2 -right-2 bg-wex-orange text-white text-xs px-3 py-1 rounded-full font-medium">
+            <div className="relative glass-card rounded-2xl p-6 w-full max-w-lg border-2 border-white shadow-lg">
+              <div className="absolute -top-2 -right-2 bg-wex-red text-white text-xs px-3 py-1 rounded-full font-medium">
                 REST APIs
               </div>
-              <pre className="bg-foreground/5 rounded-lg p-4 font-mono text-sm overflow-auto max-h-80">
-                <code className="text-foreground/90">
+              <div className="bg-wex-blue/95 rounded-lg overflow-hidden shadow-lg">
+                <div className="flex items-center px-4 py-2 bg-wex-blue">
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <div className="ml-4 text-xs text-white/70">API Request Example</div>
+                </div>
+                <pre className="text-sm overflow-auto max-h-80 p-4 m-0">
+                  <code className="language-javascript">
 {`// Example API request
 const response = await fetch(
   'https://api.wex.com/v1/payments',
@@ -184,19 +102,20 @@ const response = await fetch(
 
 const data = await response.json();
 console.log(data);`}
-                </code>
-              </pre>
+                  </code>
+                </pre>
+              </div>
               <div className="mt-4 grid grid-cols-3 gap-4">
-                <div className="flex flex-col items-center p-3 bg-white/50 rounded-lg text-center">
-                  <Code className="w-6 h-6 text-wex-blue mb-2" />
+                <div className="flex flex-col items-center p-3 bg-slate-50 rounded-lg text-center shadow-sm">
+                  <Code className="w-6 h-6 text-wex-red mb-2" />
                   <span className="text-sm font-medium">Simple Integration</span>
                 </div>
-                <div className="flex flex-col items-center p-3 bg-white/50 rounded-lg text-center">
-                  <Database className="w-6 h-6 text-wex-blue mb-2" />
+                <div className="flex flex-col items-center p-3 bg-slate-50 rounded-lg text-center shadow-sm">
+                  <Database className="w-6 h-6 text-wex-red mb-2" />
                   <span className="text-sm font-medium">Robust Data</span>
                 </div>
-                <div className="flex flex-col items-center p-3 bg-white/50 rounded-lg text-center">
-                  <Key className="w-6 h-6 text-wex-blue mb-2" />
+                <div className="flex flex-col items-center p-3 bg-slate-50 rounded-lg text-center shadow-sm">
+                  <Key className="w-6 h-6 text-wex-red mb-2" />
                   <span className="text-sm font-medium">Secure Access</span>
                 </div>
               </div>
