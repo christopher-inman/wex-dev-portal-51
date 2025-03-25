@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CreditCard, ShieldCheck, BarChart, Globe, Database, Wallet, Truck, GasPump, HelpCircle } from 'lucide-react';
+import { CreditCard, ShieldCheck, BarChart, Globe, Database, Wallet, Truck, Fuel, HelpCircle } from 'lucide-react';
 import ApiCard from './ApiCard';
 import TransitionContainer from './TransitionContainer';
 
@@ -21,7 +21,7 @@ const apiCategories = [
   {
     title: 'Fuel APIs',
     description: 'Access real-time fuel pricing and location data.',
-    icon: GasPump,
+    icon: Fuel,
     features: ['Price forecasting', 'Location services', 'Fuel efficiency'],
   },
   {

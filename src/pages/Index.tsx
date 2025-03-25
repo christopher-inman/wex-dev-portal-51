@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -8,7 +7,7 @@ import Footer from '@/components/Footer';
 import TransitionContainer from '@/components/TransitionContainer';
 import AnimatedCard from '@/components/AnimatedCard';
 import Button from '@/components/Button';
-import { Code, Database, GitBranch, Github, Globe, HelpCircle, Lock, Search, Server, Shield, Terminal } from 'lucide-react';
+import { Code, Database, GitBranch, Github, Globe, HelpCircle, Lock, Search, Server, Shield, Terminal, Mail } from 'lucide-react';
 
 const Index = () => {
   // Smooth scroll for anchor links
@@ -289,7 +288,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <TransitionContainer delay={100}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
                     <Shield className="w-8 h-8" />
                   </div>
                   <h4 className="text-lg font-bold mb-2">Enterprise Security</h4>
@@ -301,7 +300,7 @@ const Index = () => {
               
               <TransitionContainer delay={200}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
                     <Lock className="w-8 h-8" />
                   </div>
                   <h4 className="text-lg font-bold mb-2">Compliance</h4>
@@ -313,7 +312,7 @@ const Index = () => {
               
               <TransitionContainer delay={300}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
                     <Server className="w-8 h-8" />
                   </div>
                   <h4 className="text-lg font-bold mb-2">99.99% Uptime</h4>
@@ -325,7 +324,7 @@ const Index = () => {
               
               <TransitionContainer delay={400}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
                     <Globe className="w-8 h-8" />
                   </div>
                   <h4 className="text-lg font-bold mb-2">Global Scale</h4>
