@@ -1,9 +1,10 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Book, Code, FileText, BookOpen, TrendingUp, CheckCircle } from 'lucide-react';
 import Button from './Button';
 import TransitionContainer from './TransitionContainer';
 import AnimatedCard from './AnimatedCard';
+import { initPrism, highlightElement } from '@/utils/prismHighlight';
 
 const documentationItems = [
   {
@@ -33,6 +34,18 @@ const documentationItems = [
 ];
 
 const Documentation: React.FC = () => {
+  const codeRef = useRef<HTMLPreElement>(null);
+
+  useEffect(() => {
+    // Initialize Prism.js
+    initPrism();
+    
+    // Highlight the code block when component mounts
+    if (codeRef.current) {
+      highlightElement(codeRef.current);
+    }
+  }, []);
+
   return (
     <div id="documentation" className="section-padding">
       <div className="container-custom">
@@ -69,7 +82,7 @@ const Documentation: React.FC = () => {
 
           <TransitionContainer animation="fade-in-right" delay={200}>
             <AnimatedCard className="p-0 overflow-hidden">
-              <div className="p-6 bg-wex-blue text-white">
+              <div className="p-6 bg-wex-red text-white">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-xl font-bold">OAuth Authentication</h3>
                   <div className="bg-white/20 text-white text-xs rounded-full px-3 py-1">
@@ -82,8 +95,8 @@ const Documentation: React.FC = () => {
               </div>
               <div className="p-6">
                 <div className="bg-foreground/5 rounded-lg p-4 font-mono text-sm overflow-auto mb-6">
-                  <code className="text-foreground/90 whitespace-pre-wrap">
-{`// Request an access token
+                  <pre ref={codeRef} className="language-javascript">
+                    <code>{`// Request an access token
 const response = await fetch(
   'https://auth.wex.com/oauth/token',
   {
@@ -100,8 +113,8 @@ const response = await fetch(
   }
 );
 
-const { access_token } = await response.json();`}
-                  </code>
+const { access_token } = await response.json();`}</code>
+                  </pre>
                 </div>
                 
                 <h4 className="font-semibold mb-3">Key Steps</h4>
@@ -113,14 +126,14 @@ const { access_token } = await response.json();`}
                     'Handle token expiration with refresh tokens'
                   ].map((step, i) => (
                     <li key={i} className="flex items-center text-sm">
-                      <CheckCircle className="w-4 h-4 text-wex-blue mr-2 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-wex-red mr-2 flex-shrink-0" />
                       <span>{step}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div className="mt-6 pt-4 border-t border-border">
-                  <a href="#auth-guide" className="text-wex-blue font-medium hover:underline transition-all duration-200">
+                  <a href="#auth-guide" className="text-wex-red font-medium hover:underline transition-all duration-200">
                     View complete authentication guide →
                   </a>
                 </div>

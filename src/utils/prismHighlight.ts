@@ -14,7 +14,10 @@ import 'prismjs/components/prism-markup';
  */
 export const initPrism = () => {
   if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-    Prism.highlightAll();
+    // Add a small delay to allow the DOM to render fully
+    setTimeout(() => {
+      Prism.highlightAll();
+    }, 0);
   }
 };
 
@@ -24,7 +27,10 @@ export const initPrism = () => {
  */
 export const highlightElement = (element: Element) => {
   if (element && typeof Prism !== 'undefined') {
-    Prism.highlightElement(element);
+    // Add a small delay to ensure the element is fully rendered
+    setTimeout(() => {
+      Prism.highlightElement(element);
+    }, 0);
   }
 };
 

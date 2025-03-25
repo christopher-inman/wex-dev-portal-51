@@ -1,201 +1,254 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import 'prismjs/themes/prism-tomorrow.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 30% 98%;
-    --foreground: 222 47% 11%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 352 85% 42%;
+    --primary: 348 87% 43%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 209 33% 21%;
+    --secondary: 210 36% 21%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 352 85% 42%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 352 85% 42%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5% 26%;
-    --sidebar-primary: 240 6% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 5% 96%;
-    --sidebar-accent-foreground: 240 6% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-muted: 210 40% 96.1%;
+    --sidebar-muted-foreground: 215.4 16.3% 46.9%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-primary: 348 87% 43%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-ring: 222.2 84% 4.9%;
   }
 
-  * {
-    @apply border-border;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 348 87% 43%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 36% 21%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-muted: 217.2 32.6% 17.5%;
+    --sidebar-muted-foreground: 215 20.2% 65.1%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-primary: 348 87% 43%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
   body {
-    @apply bg-background text-foreground font-sans;
-  }
-
-  /* Set up PrismJS specific styling */
-  pre[class*="language-"] {
-    @apply rounded-lg my-4 text-sm;
-  }
-
-  code[class*="language-"] {
-    text-shadow: none;
-  }
-
-  .token.comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata {
-    @apply text-slate-500;
-  }
-
-  .token.punctuation {
-    @apply text-slate-400;
-  }
-
-  .token.property,
-  .token.tag,
-  .token.boolean,
-  .token.number,
-  .token.constant,
-  .token.symbol,
-  .token.deleted {
-    @apply text-wex-red;
-  }
-
-  .token.selector,
-  .token.attr-name,
-  .token.string,
-  .token.char,
-  .token.builtin,
-  .token.inserted {
-    @apply text-green-500;
-  }
-
-  .token.operator,
-  .token.entity,
-  .token.url,
-  .language-css .token.string,
-  .style .token.string {
-    @apply text-yellow-500;
-  }
-
-  .token.atrule,
-  .token.attr-value,
-  .token.keyword {
-    @apply text-blue-500;
-  }
-
-  .token.function,
-  .token.class-name {
-    @apply text-amber-500;
-  }
-
-  .token.regex,
-  .token.important,
-  .token.variable {
-    @apply text-purple-500;
+    @apply bg-background text-foreground;
   }
 }
 
 @layer components {
-  .glass-card {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
-  }
-  
-  .text-gradient {
-    @apply bg-gradient-to-r from-wex-red to-wex-red/80 bg-clip-text text-transparent;
-  }
-  
-  .hover-card {
-    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
-  }
-  
-  .nav-link {
-    @apply relative py-2 px-1 text-sm font-medium text-foreground/80 transition-colors duration-200 ease-in-out hover:text-foreground;
-  }
-  
-  .nav-link::after {
-    @apply content-[''] absolute left-0 bottom-0 w-0 h-[2px] bg-wex-red transition-all duration-300 ease-in-out;
-  }
-  
-  .nav-link:hover::after {
-    @apply w-full;
-  }
-  
-  .btn-primary {
-    @apply relative overflow-hidden bg-wex-red text-white rounded-lg px-6 py-3 font-medium transition-all duration-300 hover:shadow-md hover:shadow-wex-red/20 focus:outline-none focus:ring-2 focus:ring-wex-red/50;
-  }
-  
-  .btn-secondary {
-    @apply relative overflow-hidden bg-white text-wex-blue border border-wex-blue/20 rounded-lg px-6 py-3 font-medium transition-all duration-300 hover:bg-wex-blue/5 focus:outline-none focus:ring-2 focus:ring-wex-blue/50;
-  }
-  
-  .btn-primary::before, .btn-secondary::before {
-    @apply content-[''] absolute top-0 left-0 w-full h-full bg-white/10 translate-x-full skew-x-[20deg] transition-transform duration-500;
-  }
-  
-  .btn-primary:hover::before, .btn-secondary:hover::before {
-    @apply translate-x-[-180%];
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
   }
 
   .section-padding {
     @apply py-16 md:py-24;
   }
-  
-  .container-custom {
-    @apply max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8;
+
+  .btn-primary {
+    @apply bg-wex-red text-white hover:bg-wex-red/90 active:bg-wex-red/80 focus:ring-wex-red/40;
+  }
+
+  .btn-secondary {
+    @apply bg-wex-blue text-white hover:bg-wex-blue/90 active:bg-wex-blue/80 focus:ring-wex-blue/40;
+  }
+
+  .glass-card {
+    @apply bg-background/70 backdrop-blur-sm border border-border/50 shadow-lg;
+  }
+
+  .hover-card {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 }
 
-/* Base transitions */
-.page-transition-enter {
-  opacity: 0;
-  transform: translateY(20px);
+/* Prism.js syntax highlighting theme */
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #d4d4d4;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
 }
 
-.page-transition-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 400ms, transform 400ms;
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"] *::selection,
+code[class*="language-"] *::selection {
+  text-shadow: none;
+  background: #264f78;
 }
 
-.page-transition-exit {
-  opacity: 1;
-  transform: translateY(0);
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0;
+  overflow: auto;
+  background: #1e1e1e;
 }
 
-.page-transition-exit-active {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 300ms, transform 300ms;
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #1e1e1e;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6a9955;
+}
+
+.token.punctuation {
+  color: #d4d4d4;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #b5cea8;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #ce9178;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #d4d4d4;
+  background: transparent;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #569cd6;
+}
+
+.token.function {
+  color: #dcdcaa;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #d16969;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.constant {
+  color: #9cdcfe;
+}
+
+.token.class-name {
+  color: #4ec9b0;
+}
+
+.token.parameter {
+  color: #9cdcfe;
+}
+
+.token.interpolation {
+  color: #9cdcfe;
+}
+
+.token.punctuation.interpolation-punctuation {
+  color: #569cd6;
+}
+
+.token.namespace {
+  opacity: .7;
 }
