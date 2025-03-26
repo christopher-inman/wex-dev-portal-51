@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -64,8 +65,8 @@ const Index = () => {
               <TransitionContainer delay={100}>
                 <AnimatedCard className="p-6 h-full">
                   <div className="flex flex-col h-full">
-                    <div className="w-12 h-12 rounded-lg bg-wex-blue/10 flex items-center justify-center mb-4">
-                      <Code className="w-6 h-6 text-wex-blue" />
+                    <div className="w-12 h-12 rounded-lg bg-wex-red/10 flex items-center justify-center mb-4">
+                      <Code className="w-6 h-6 text-wex-red" />
                     </div>
                     <h3 className="text-xl font-bold mb-2">Code Samples</h3>
                     <p className="text-sm text-foreground/70 mb-6">
@@ -90,8 +91,8 @@ const Index = () => {
               <TransitionContainer delay={200}>
                 <AnimatedCard className="p-6 h-full">
                   <div className="flex flex-col h-full">
-                    <div className="w-12 h-12 rounded-lg bg-wex-blue/10 flex items-center justify-center mb-4">
-                      <GitBranch className="w-6 h-6 text-wex-blue" />
+                    <div className="w-12 h-12 rounded-lg bg-wex-lightBlue/10 flex items-center justify-center mb-4">
+                      <GitBranch className="w-6 h-6 text-wex-lightBlue" />
                     </div>
                     <h3 className="text-xl font-bold mb-2">SDKs & Libraries</h3>
                     <p className="text-sm text-foreground/70 mb-6">
@@ -113,8 +114,8 @@ const Index = () => {
               <TransitionContainer delay={300}>
                 <AnimatedCard className="p-6 h-full">
                   <div className="flex flex-col h-full">
-                    <div className="w-12 h-12 rounded-lg bg-wex-blue/10 flex items-center justify-center mb-4">
-                      <Terminal className="w-6 h-6 text-wex-blue" />
+                    <div className="w-12 h-12 rounded-lg bg-wex-orange/10 flex items-center justify-center mb-4">
+                      <Terminal className="w-6 h-6 text-wex-orange" />
                     </div>
                     <h3 className="text-xl font-bold mb-2">API Testing Tools</h3>
                     <p className="text-sm text-foreground/70 mb-6">
@@ -123,15 +124,15 @@ const Index = () => {
                     <div className="mt-auto">
                       <ul className="space-y-2 mb-4">
                         <li className="flex items-center text-sm">
-                          <span className="w-1.5 h-1.5 bg-wex-blue rounded-full mr-2"></span>
+                          <span className="w-1.5 h-1.5 bg-wex-orange rounded-full mr-2"></span>
                           API Playground
                         </li>
                         <li className="flex items-center text-sm">
-                          <span className="w-1.5 h-1.5 bg-wex-blue rounded-full mr-2"></span>
+                          <span className="w-1.5 h-1.5 bg-wex-orange rounded-full mr-2"></span>
                           Postman Collections
                         </li>
                         <li className="flex items-center text-sm">
-                          <span className="w-1.5 h-1.5 bg-wex-blue rounded-full mr-2"></span>
+                          <span className="w-1.5 h-1.5 bg-wex-orange rounded-full mr-2"></span>
                           Request Validator
                         </li>
                       </ul>
@@ -161,8 +162,8 @@ const Index = () => {
                   <div className="space-y-6">
                     <div className="flex">
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center">
-                          <Search className="w-5 h-5 text-secondary" />
+                        <div className="w-10 h-10 rounded-lg bg-wex-lightBlue/10 flex items-center justify-center">
+                          <Search className="w-5 h-5 text-wex-lightBlue" />
                         </div>
                       </div>
                       <div className="ml-4">
@@ -175,8 +176,8 @@ const Index = () => {
                     
                     <div className="flex">
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center">
-                          <HelpCircle className="w-5 h-5 text-secondary" />
+                        <div className="w-10 h-10 rounded-lg bg-wex-orange/10 flex items-center justify-center">
+                          <HelpCircle className="w-5 h-5 text-wex-orange" />
                         </div>
                       </div>
                       <div className="ml-4">
@@ -189,8 +190,8 @@ const Index = () => {
                     
                     <div className="flex">
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center">
-                          <Mail className="w-5 h-5 text-secondary" />
+                        <div className="w-10 h-10 rounded-lg bg-wex-red/10 flex items-center justify-center">
+                          <Mail className="w-5 h-5 text-wex-red" />
                         </div>
                       </div>
                       <div className="ml-4">
@@ -288,8 +289,8 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <TransitionContainer delay={100}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                    <Shield className="w-8 h-8" />
+                  <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                    <Shield className="w-8 h-8 text-white" />
                   </div>
                   <h4 className="text-lg font-bold mb-2">Enterprise Security</h4>
                   <p className="text-white/80 text-sm">
@@ -300,8 +301,8 @@ const Index = () => {
               
               <TransitionContainer delay={200}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                    <Lock className="w-8 h-8" />
+                  <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                    <Lock className="w-8 h-8 text-white" />
                   </div>
                   <h4 className="text-lg font-bold mb-2">Compliance</h4>
                   <p className="text-white/80 text-sm">
@@ -312,8 +313,8 @@ const Index = () => {
               
               <TransitionContainer delay={300}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                    <Server className="w-8 h-8" />
+                  <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                    <Server className="w-8 h-8 text-white" />
                   </div>
                   <h4 className="text-lg font-bold mb-2">99.99% Uptime</h4>
                   <p className="text-white/80 text-sm">
@@ -324,8 +325,8 @@ const Index = () => {
               
               <TransitionContainer delay={400}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                    <Globe className="w-8 h-8" />
+                  <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                    <Globe className="w-8 h-8 text-white" />
                   </div>
                   <h4 className="text-lg font-bold mb-2">Global Scale</h4>
                   <p className="text-white/80 text-sm">

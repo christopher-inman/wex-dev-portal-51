@@ -12,24 +12,28 @@ const documentationItems = [
     description: 'Complete API documentation with examples and schema definitions.',
     icon: Book,
     link: '#api-reference',
+    iconColor: '#c8102e', // WEX red
   },
   {
     title: 'Quick Start Guides',
     description: 'Get up and running quickly with step-by-step tutorials.',
     icon: TrendingUp,
     link: '#quick-start',
+    iconColor: '#F7901E', // WEX orange
   },
   {
     title: 'Code Samples',
     description: 'Ready-to-use code samples in multiple programming languages.',
     icon: Code,
     link: '#code-samples',
+    iconColor: '#55a9da', // WEX light blue
   },
   {
     title: 'Implementation Guide',
     description: 'Detailed guide for integrating WEX APIs into your application.',
     icon: FileText,
     link: '#implementation-guide',
+    iconColor: '#253746', // WEX blue
   },
 ];
 
@@ -61,7 +65,7 @@ const Documentation: React.FC = () => {
               {documentationItems.map((item, index) => (
                 <div key={index} className="flex items-start">
                   <div className="flex-shrink-0 mt-1">
-                    <item.icon className="w-5 h-5 text-wex-blue" />
+                    <item.icon className="w-5 h-5" style={{ color: item.iconColor }} />
                   </div>
                   <div className="ml-3">
                     <h4 className="text-base font-semibold">{item.title}</h4>

@@ -11,36 +11,42 @@ const apiCategories = [
     icon: Truck,
     features: ['Vehicle tracking', 'Fuel management', 'Card controls'],
     featured: true,
+    iconColor: '#F7901E', // WEX orange for fleet
   },
   {
     title: 'Payment APIs',
     description: 'Process payments securely with our payment processing APIs.',
     icon: CreditCard,
     features: ['Card payments', 'ACH transfers', 'Tokenization'],
+    iconColor: '#55a9da', // WEX light blue for payments
   },
   {
     title: 'Fuel APIs',
     description: 'Access real-time fuel pricing and location data.',
     icon: Fuel,
     features: ['Price forecasting', 'Location services', 'Fuel efficiency'],
+    iconColor: '#c8102e', // WEX red for fuel
   },
   {
     title: 'Corporate Payment APIs',
     description: 'Streamline your business payments with our corporate payment solutions.',
     icon: Wallet,
     features: ['Expense management', 'Virtual cards', 'Approval workflows'],
+    iconColor: '#55a9da', // WEX light blue for corporate payments
   },
   {
     title: 'Analytics APIs',
     description: 'Get insights into your payment data with our analytics APIs.',
     icon: BarChart,
     features: ['Custom reports', 'Data visualization', 'Trend analysis'],
+    iconColor: '#253746', // WEX blue for analytics
   },
   {
     title: 'Global Commerce APIs',
     description: 'Expand your business globally with our international payment solutions.',
     icon: Globe,
     features: ['Multi-currency', 'FX rates', 'Global compliance'],
+    iconColor: '#58595B', // WEX grey for global commerce
   },
 ];
 
@@ -65,6 +71,7 @@ const Features: React.FC = () => {
                 icon={api.icon}
                 features={api.features}
                 variant={api.featured ? 'featured' : 'default'}
+                iconColor={api.iconColor}
               />
             </TransitionContainer>
           ))}
@@ -73,8 +80,8 @@ const Features: React.FC = () => {
         <div className="mt-16 p-8 glass-card rounded-2xl border border-border shadow-lg">
           <div className="flex flex-col md:flex-row items-center">
             <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-8">
-              <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center">
-                <HelpCircle className="w-8 h-8 text-secondary" />
+              <div className="w-16 h-16 rounded-full bg-wex-orange/20 flex items-center justify-center">
+                <HelpCircle className="w-8 h-8 text-wex-orange" />
               </div>
             </div>
             <div className="flex-grow">
@@ -82,7 +89,7 @@ const Features: React.FC = () => {
               <p className="text-foreground/70 mb-4">
                 Our team can help you identify the best API solutions for your specific business needs. Contact us for a consultation.
               </p>
-              <button className="text-primary font-medium hover:underline transition-all duration-200">
+              <button className="text-wex-lightBlue font-medium hover:underline transition-all duration-200">
                 Schedule a consultation →
               </button>
             </div>
