@@ -50,10 +50,10 @@ const Index = () => {
         <Documentation />
         
         {/* Resources Section */}
-        <section id="resources" className="section-padding bg-foreground/[0.02]">
+        <section id="resources" className="section-padding bg-background/[0.02] dark:bg-background/[0.05]">
           <div className="container-custom">
             <TransitionContainer className="text-center max-w-3xl mx-auto mb-16">
-              <h5 className="text-sm font-medium text-wex-blue mb-3">EVERYTHING YOU NEED</h5>
+              <h5 className="text-sm font-medium text-secondary mb-3">EVERYTHING YOU NEED</h5>
               <h2 className="text-4xl font-bold mb-6">Developer Resources</h2>
               <p className="text-lg text-foreground/70">
                 Take advantage of our comprehensive resources to help you build, test, and deploy your WEX-powered applications.
@@ -152,7 +152,7 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div className="lg:col-span-5">
                 <TransitionContainer animation="fade-in-left">
-                  <h5 className="text-sm font-medium text-wex-blue mb-3">HERE TO HELP</h5>
+                  <h5 className="text-sm font-medium text-secondary mb-3">HERE TO HELP</h5>
                   <h2 className="text-4xl font-bold mb-6">Developer Support</h2>
                   <p className="text-lg text-foreground/70 mb-8">
                     We're committed to your success. Our developer support team is here to help you every step of the way.
@@ -161,8 +161,8 @@ const Index = () => {
                   <div className="space-y-6">
                     <div className="flex">
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-lg bg-wex-blue/10 flex items-center justify-center">
-                          <Search className="w-5 h-5 text-wex-blue" />
+                        <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center">
+                          <Search className="w-5 h-5 text-secondary" />
                         </div>
                       </div>
                       <div className="ml-4">
@@ -175,8 +175,8 @@ const Index = () => {
                     
                     <div className="flex">
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-lg bg-wex-blue/10 flex items-center justify-center">
-                          <HelpCircle className="w-5 h-5 text-wex-blue" />
+                        <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center">
+                          <HelpCircle className="w-5 h-5 text-secondary" />
                         </div>
                       </div>
                       <div className="ml-4">
@@ -189,8 +189,8 @@ const Index = () => {
                     
                     <div className="flex">
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-lg bg-wex-blue/10 flex items-center justify-center">
-                          <Mail className="w-5 h-5 text-wex-blue" />
+                        <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center">
+                          <Mail className="w-5 h-5 text-secondary" />
                         </div>
                       </div>
                       <div className="ml-4">
@@ -207,13 +207,13 @@ const Index = () => {
               <div className="lg:col-span-7">
                 <TransitionContainer animation="fade-in-right" delay={200}>
                   <AnimatedCard className="overflow-hidden">
-                    <div className="bg-wex-blue text-white p-6">
+                    <div className="bg-secondary text-white p-6">
                       <h3 className="text-xl font-bold mb-2">Contact Developer Support</h3>
                       <p className="text-white/80">
                         Fill out the form below and we'll get back to you as soon as possible.
                       </p>
                     </div>
-                    <div className="p-6">
+                    <div className="p-6 bg-card">
                       <form className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
@@ -223,7 +223,7 @@ const Index = () => {
                             <input
                               type="text"
                               id="name"
-                              className="w-full px-4 py-2 rounded-lg border border-border focus:ring-2 focus:ring-wex-blue/40 focus:border-wex-blue focus:outline-none"
+                              className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
                               placeholder="Your name"
                             />
                           </div>
@@ -234,7 +234,7 @@ const Index = () => {
                             <input
                               type="email"
                               id="email"
-                              className="w-full px-4 py-2 rounded-lg border border-border focus:ring-2 focus:ring-wex-blue/40 focus:border-wex-blue focus:outline-none"
+                              className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
                               placeholder="your.email@example.com"
                             />
                           </div>
@@ -247,7 +247,7 @@ const Index = () => {
                           <input
                             type="text"
                             id="subject"
-                            className="w-full px-4 py-2 rounded-lg border border-border focus:ring-2 focus:ring-wex-blue/40 focus:border-wex-blue focus:outline-none"
+                            className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
                             placeholder="What's your question about?"
                           />
                         </div>
@@ -259,7 +259,7 @@ const Index = () => {
                           <textarea
                             id="message"
                             rows={4}
-                            className="w-full px-4 py-2 rounded-lg border border-border focus:ring-2 focus:ring-wex-blue/40 focus:border-wex-blue focus:outline-none"
+                            className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
                             placeholder="Please provide details about your issue or question..."
                           ></textarea>
                         </div>
@@ -283,7 +283,7 @@ const Index = () => {
         </section>
         
         {/* Security Banner */}
-        <section className="py-20 bg-gradient-to-r from-wex-blue to-wex-lightBlue text-white">
+        <section className="py-20 bg-gradient-to-r from-secondary to-wex-lightBlue text-white">
           <div className="container-custom">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <TransitionContainer delay={100}>
@@ -341,7 +341,7 @@ const Index = () => {
         <section className="section-padding">
           <div className="container-custom max-w-4xl">
             <TransitionContainer className="text-center">
-              <div className="glass-card p-12 rounded-2xl">
+              <div className="glass-card p-12 rounded-2xl bg-card/70 backdrop-blur-sm border border-border/50 shadow-lg">
                 <h2 className="text-4xl font-bold mb-6">Ready to start building?</h2>
                 <p className="text-lg text-foreground/70 mb-8 max-w-2xl mx-auto">
                   Join thousands of developers who are already creating innovative payment solutions with WEX APIs.

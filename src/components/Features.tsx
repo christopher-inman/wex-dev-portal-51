@@ -46,10 +46,10 @@ const apiCategories = [
 
 const Features: React.FC = () => {
   return (
-    <div id="apis" className="section-padding bg-slate-50">
+    <div id="apis" className="section-padding bg-background dark:bg-background">
       <div className="container-custom">
         <TransitionContainer className="text-center max-w-3xl mx-auto mb-16">
-          <h5 className="text-sm font-medium text-wex-red mb-3">POWERFUL & FLEXIBLE</h5>
+          <h5 className="text-sm font-medium text-primary mb-3">POWERFUL & FLEXIBLE</h5>
           <h2 className="text-4xl font-bold mb-6">Industry-Leading APIs</h2>
           <p className="text-lg text-foreground/70">
             Build innovative payment solutions with our comprehensive suite of APIs designed for developers by developers.
@@ -70,11 +70,11 @@ const Features: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-16 p-8 glass-card rounded-2xl border border-wex-blue/10 shadow-lg">
+        <div className="mt-16 p-8 glass-card rounded-2xl border border-border shadow-lg">
           <div className="flex flex-col md:flex-row items-center">
             <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-8">
-              <div className="w-16 h-16 rounded-full bg-wex-blue/10 flex items-center justify-center">
-                <HelpCircle className="w-8 h-8 text-wex-blue" />
+              <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center">
+                <HelpCircle className="w-8 h-8 text-secondary" />
               </div>
             </div>
             <div className="flex-grow">
@@ -82,7 +82,7 @@ const Features: React.FC = () => {
               <p className="text-foreground/70 mb-4">
                 Our team can help you identify the best API solutions for your specific business needs. Contact us for a consultation.
               </p>
-              <button className="text-wex-red font-medium hover:underline transition-all duration-200">
+              <button className="text-primary font-medium hover:underline transition-all duration-200">
                 Schedule a consultation →
               </button>
             </div>
