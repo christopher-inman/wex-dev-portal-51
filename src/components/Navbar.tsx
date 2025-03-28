@@ -113,8 +113,8 @@ const Navbar: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
-              <Button variant="secondary" size="sm" as={Link} to="/sign-in">Sign In</Button>
-              <Button variant="primary" size="sm" as={Link} to="/get-started">Get Started</Button>
+              <Button variant="secondary" size="sm" to="/sign-in">Sign In</Button>
+              <Button variant="primary" size="sm" to="/get-started">Get Started</Button>
             </div>
           </div>
 
@@ -177,8 +177,8 @@ const Navbar: React.FC = () => {
               </div>
             ))}
             <div className="px-4 pt-4 flex flex-col space-y-2">
-              <Button variant="secondary" fullWidth as={Link} to="/sign-in">Sign In</Button>
-              <Button variant="primary" fullWidth as={Link} to="/get-started">Get Started</Button>
+              <Button variant="secondary" fullWidth to="/sign-in">Sign In</Button>
+              <Button variant="primary" fullWidth to="/get-started">Get Started</Button>
             </div>
           </div>
         </div>

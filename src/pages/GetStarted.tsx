@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
@@ -200,8 +199,8 @@ const GetStarted: React.FC = () => {
                   </ol>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <Button variant="primary" as={Link} to="/">Return to Homepage</Button>
-                  <Button variant="link" as={Link} to="/documentation">Explore Documentation</Button>
+                  <Button variant="primary" to="/">Return to Homepage</Button>
+                  <Button variant="link" to="/documentation">Explore Documentation</Button>
                 </div>
               </div>
             )}
