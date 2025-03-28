@@ -1,57 +1,46 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Book, Code, FileText, BookOpen, TrendingUp, CheckCircle } from 'lucide-react';
 import Button from './Button';
 import TransitionContainer from './TransitionContainer';
 import AnimatedCard from './AnimatedCard';
 import { initPrism, highlightElement } from '@/utils/prismHighlight';
-
-const documentationItems = [
-  {
-    title: 'API Reference',
-    description: 'Complete API documentation with examples and schema definitions.',
-    icon: Book,
-    link: '#api-reference',
-    iconColor: '#c8102e', // WEX red
-  },
-  {
-    title: 'Quick Start Guides',
-    description: 'Get up and running quickly with step-by-step tutorials.',
-    icon: TrendingUp,
-    link: '#quick-start',
-    iconColor: '#F7901E', // WEX orange
-  },
-  {
-    title: 'Code Samples',
-    description: 'Ready-to-use code samples in multiple programming languages.',
-    icon: Code,
-    link: '#code-samples',
-    iconColor: '#55a9da', // WEX light blue
-  },
-  {
-    title: 'Implementation Guide',
-    description: 'Detailed guide for integrating WEX APIs into your application.',
-    icon: FileText,
-    link: '#implementation-guide',
-    iconColor: '#253746', // WEX blue
-  },
-];
-
+const documentationItems = [{
+  title: 'API Reference',
+  description: 'Complete API documentation with examples and schema definitions.',
+  icon: Book,
+  link: '#api-reference',
+  iconColor: '#c8102e' // WEX red
+}, {
+  title: 'Quick Start Guides',
+  description: 'Get up and running quickly with step-by-step tutorials.',
+  icon: TrendingUp,
+  link: '#quick-start',
+  iconColor: '#F7901E' // WEX orange
+}, {
+  title: 'Code Samples',
+  description: 'Ready-to-use code samples in multiple programming languages.',
+  icon: Code,
+  link: '#code-samples',
+  iconColor: '#55a9da' // WEX light blue
+}, {
+  title: 'Implementation Guide',
+  description: 'Detailed guide for integrating WEX APIs into your application.',
+  icon: FileText,
+  link: '#implementation-guide',
+  iconColor: '#253746' // WEX blue
+}];
 const Documentation: React.FC = () => {
   const codeRef = useRef<HTMLPreElement>(null);
-
   useEffect(() => {
     // Initialize Prism.js
     initPrism();
-    
+
     // Highlight the code block when component mounts
     if (codeRef.current) {
       highlightElement(codeRef.current);
     }
   }, []);
-
-  return (
-    <div id="documentation" className="section-padding bg-background dark:bg-background">
+  return <div id="documentation" className="section-padding bg-background dark:bg-background">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <TransitionContainer animation="fade-in-left">
@@ -62,24 +51,20 @@ const Documentation: React.FC = () => {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              {documentationItems.map((item, index) => (
-                <div key={index} className="flex items-start">
+              {documentationItems.map((item, index) => <div key={index} className="flex items-start">
                   <div className="flex-shrink-0 mt-1">
-                    <item.icon className="w-5 h-5" style={{ color: item.iconColor }} />
+                    <item.icon className="w-5 h-5" style={{
+                  color: item.iconColor
+                }} />
                   </div>
                   <div className="ml-3">
                     <h4 className="text-base font-semibold">{item.title}</h4>
                     <p className="text-sm text-foreground/70">{item.description}</p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
 
-            <Button
-              variant="primary"
-              size="lg"
-              icon={<BookOpen className="w-4 h-4" />}
-            >
+            <Button variant="primary" size="lg" icon={<BookOpen className="w-4 h-4" />} className="rounded-lg">
               Browse Documentation
             </Button>
           </TransitionContainer>
@@ -123,17 +108,10 @@ const { access_token } = await response.json();`}</code>
                 
                 <h4 className="font-semibold mb-3">Key Steps</h4>
                 <ul className="space-y-2">
-                  {[
-                    'Register your application to get client credentials',
-                    'Request an access token using your credentials',
-                    'Include the token in the Authorization header',
-                    'Handle token expiration with refresh tokens'
-                  ].map((step, i) => (
-                    <li key={i} className="flex items-center text-sm">
+                  {['Register your application to get client credentials', 'Request an access token using your credentials', 'Include the token in the Authorization header', 'Handle token expiration with refresh tokens'].map((step, i) => <li key={i} className="flex items-center text-sm">
                       <CheckCircle className="w-4 h-4 text-wex-red mr-2 flex-shrink-0" />
                       <span>{step}</span>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
 
                 <div className="mt-6 pt-4 border-t border-border">
@@ -146,8 +124,6 @@ const { access_token } = await response.json();`}</code>
           </TransitionContainer>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Documentation;
