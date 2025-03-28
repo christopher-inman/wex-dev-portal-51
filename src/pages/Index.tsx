@@ -51,7 +51,7 @@ const Index = () => {
         <Documentation />
         
         {/* Resources Section */}
-        <section id="resources" className="section-padding bg-background/[0.02] dark:bg-background/[0.05]">
+        <section id="resources" className="section-padding bg-muted/30 dark:bg-muted/10">
           <div className="container-custom">
             <TransitionContainer className="text-center max-w-3xl mx-auto mb-16">
               <h5 className="text-sm font-medium text-secondary mb-3">EVERYTHING YOU NEED</h5>
@@ -148,7 +148,7 @@ const Index = () => {
         </section>
         
         {/* Support Section */}
-        <section id="support" className="section-padding">
+        <section id="support" className="section-padding bg-background dark:bg-background">
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div className="lg:col-span-5">
@@ -214,7 +214,7 @@ const Index = () => {
                         Fill out the form below and we'll get back to you as soon as possible.
                       </p>
                     </div>
-                    <div className="p-6 bg-card">
+                    <div className="p-6 bg-card dark:bg-card">
                       <form className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
@@ -224,7 +224,7 @@ const Index = () => {
                             <input
                               type="text"
                               id="name"
-                              className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
+                              className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none dark:bg-background dark:border-border dark:text-foreground"
                               placeholder="Your name"
                             />
                           </div>
@@ -235,7 +235,7 @@ const Index = () => {
                             <input
                               type="email"
                               id="email"
-                              className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
+                              className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none dark:bg-background dark:border-border dark:text-foreground"
                               placeholder="your.email@example.com"
                             />
                           </div>
@@ -248,7 +248,7 @@ const Index = () => {
                           <input
                             type="text"
                             id="subject"
-                            className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
+                            className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none dark:bg-background dark:border-border dark:text-foreground"
                             placeholder="What's your question about?"
                           />
                         </div>
@@ -260,7 +260,7 @@ const Index = () => {
                           <textarea
                             id="message"
                             rows={4}
-                            className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
+                            className="w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none dark:bg-background dark:border-border dark:text-foreground"
                             placeholder="Please provide details about your issue or question..."
                           ></textarea>
                         </div>
@@ -339,7 +339,7 @@ const Index = () => {
         </section>
         
         {/* CTA Section */}
-        <section className="section-padding">
+        <section className="section-padding bg-muted/30 dark:bg-muted/10">
           <div className="container-custom max-w-4xl">
             <TransitionContainer className="text-center">
               <div className="glass-card p-12 rounded-2xl bg-card/70 backdrop-blur-sm border border-border/50 shadow-lg">

@@ -52,7 +52,7 @@ const apiCategories = [
 
 const Features: React.FC = () => {
   return (
-    <div id="apis" className="section-padding bg-background dark:bg-background">
+    <div id="apis" className="section-padding bg-muted/30 dark:bg-muted/10">
       <div className="container-custom">
         <TransitionContainer className="text-center max-w-3xl mx-auto mb-16">
           <h5 className="text-sm font-medium text-primary mb-3">POWERFUL & FLEXIBLE</h5>

@@ -12,17 +12,17 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden min-h-screen pt-20 flex items-center bg-gradient-to-b from-background to-background/95">
+    <div className="relative overflow-hidden min-h-screen pt-20 flex items-center bg-background dark:bg-background">
       {/* Abstract shapes */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5"></div>
-        <div className="absolute top-20 left-20 w-40 h-40 rounded-full bg-secondary/5"></div>
-        <div className="absolute bottom-40 right-20 w-60 h-60 rounded-full bg-primary/5"></div>
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-secondary/5"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 dark:bg-primary/10"></div>
+        <div className="absolute top-20 left-20 w-40 h-40 rounded-full bg-secondary/5 dark:bg-secondary/10"></div>
+        <div className="absolute bottom-40 right-20 w-60 h-60 rounded-full bg-primary/5 dark:bg-primary/10"></div>
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-secondary/5 dark:bg-secondary/10"></div>
         
         {/* Accent lines */}
-        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
-        <div className="absolute top-2/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
+        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent dark:via-primary/30"></div>
+        <div className="absolute top-2/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent dark:via-secondary/30"></div>
       </div>
       
       <div className="container-custom relative z-10">
@@ -105,15 +105,15 @@ console.log(data);`}
                 </pre>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-4">
-                <div className="flex flex-col items-center p-3 bg-background/80 rounded-lg text-center shadow-sm">
+                <div className="flex flex-col items-center p-3 bg-background/80 dark:bg-background/50 rounded-lg text-center shadow-sm">
                   <Code className="w-6 h-6 text-primary mb-2" />
                   <span className="text-sm font-medium">Simple Integration</span>
                 </div>
-                <div className="flex flex-col items-center p-3 bg-background/80 rounded-lg text-center shadow-sm">
+                <div className="flex flex-col items-center p-3 bg-background/80 dark:bg-background/50 rounded-lg text-center shadow-sm">
                   <Database className="w-6 h-6 text-primary mb-2" />
                   <span className="text-sm font-medium">Robust Data</span>
                 </div>
-                <div className="flex flex-col items-center p-3 bg-background/80 rounded-lg text-center shadow-sm">
+                <div className="flex flex-col items-center p-3 bg-background/80 dark:bg-background/50 rounded-lg text-center shadow-sm">
                   <Key className="w-6 h-6 text-primary mb-2" />
                   <span className="text-sm font-medium">Secure Access</span>
                 </div>

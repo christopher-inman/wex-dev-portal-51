@@ -51,7 +51,7 @@ const Documentation: React.FC = () => {
   }, []);
 
   return (
-    <div id="documentation" className="section-padding">
+    <div id="documentation" className="section-padding bg-background dark:bg-background">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <TransitionContainer animation="fade-in-left">
@@ -98,7 +98,7 @@ const Documentation: React.FC = () => {
                 </p>
               </div>
               <div className="p-6">
-                <div className="bg-foreground/5 rounded-lg p-4 font-mono text-sm overflow-auto mb-6">
+                <div className="bg-foreground/5 dark:bg-foreground/10 rounded-lg p-4 font-mono text-sm overflow-auto mb-6">
                   <pre ref={codeRef} className="language-javascript">
                     <code>{`// Request an access token
 const response = await fetch(
