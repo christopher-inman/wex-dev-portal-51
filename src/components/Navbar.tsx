@@ -1,23 +1,24 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Button from './Button';
 import { ThemeToggle } from './ThemeToggle';
 
 const navigationItems = [
-  { name: 'APIs', href: '#apis', hasChildren: true, children: [
-    { name: 'Fleet APIs', href: '#fleet-apis' },
-    { name: 'Payment APIs', href: '#payment-apis' },
-    { name: 'Corporate Payment APIs', href: '#corporate-payment-apis' },
+  { name: 'APIs', href: '/apis', hasChildren: true, children: [
+    { name: 'Fleet APIs', href: '/apis#fleet-apis' },
+    { name: 'Payment APIs', href: '/apis#payment-apis' },
+    { name: 'Corporate Payment APIs', href: '/apis#corporate-payment-apis' },
   ]},
-  { name: 'Documentation', href: '#documentation' },
-  { name: 'Resources', href: '#resources', hasChildren: true, children: [
-    { name: 'API Guides', href: '#api-guides' },
-    { name: 'Code Samples', href: '#code-samples' },
-    { name: 'SDKs', href: '#sdks' },
+  { name: 'Documentation', href: '/documentation' },
+  { name: 'Resources', href: '/resources', hasChildren: true, children: [
+    { name: 'API Guides', href: '/resources#api-guides' },
+    { name: 'Code Samples', href: '/resources#code-samples' },
+    { name: 'SDKs', href: '/resources#sdks' },
   ]},
-  { name: 'Support', href: '#support' },
+  { name: 'Support', href: '/support' },
 ];
 
 const Navbar: React.FC = () => {
@@ -58,10 +59,10 @@ const Navbar: React.FC = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <span className="text-2xl font-bold text-wex-red dark:text-wex-red">WEX</span>
               <span className="ml-2 text-lg font-medium text-foreground">Developer Portal</span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -69,8 +70,8 @@ const Navbar: React.FC = () => {
             <div className="flex items-center space-x-8">
               {navigationItems.map((item) => (
                 <div key={item.name} className="relative group">
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="nav-link group flex items-center text-foreground hover:text-wex-red transition-colors duration-200"
                     onClick={item.hasChildren ? (e) => {
                       e.preventDefault();
@@ -86,7 +87,7 @@ const Navbar: React.FC = () => {
                         )} 
                       />
                     )}
-                  </a>
+                  </Link>
                   {item.hasChildren && (
                     <div 
                       className={cn(
@@ -96,13 +97,13 @@ const Navbar: React.FC = () => {
                     >
                       <div className="py-1">
                         {item.children?.map((child) => (
-                          <a
+                          <Link
                             key={child.name}
-                            href={child.href}
+                            to={child.href}
                             className="block px-4 py-2 text-sm text-foreground hover:bg-accent/10 hover:text-accent-foreground transition-colors duration-200"
                           >
                             {child.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -112,8 +113,8 @@ const Navbar: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
-              <Button variant="secondary" size="sm">Sign In</Button>
-              <Button variant="primary" size="sm">Get Started</Button>
+              <Button variant="secondary" size="sm" as={Link} to="/sign-in">Sign In</Button>
+              <Button variant="primary" size="sm" as={Link} to="/get-started">Get Started</Button>
             </div>
           </div>
 
@@ -145,7 +146,7 @@ const Navbar: React.FC = () => {
                   onClick={() => item.hasChildren ? handleDropdownToggle(item.name) : null}
                   className="w-full flex justify-between items-center py-2 text-base font-medium text-foreground hover:text-accent transition-colors duration-200"
                 >
-                  <a href={item.href}>{item.name}</a>
+                  <Link to={item.href}>{item.name}</Link>
                   {item.hasChildren && (
                     <ChevronDown 
                       className={cn(
@@ -163,21 +164,21 @@ const Navbar: React.FC = () => {
                     )}
                   >
                     {item.children?.map((child) => (
-                      <a
+                      <Link
                         key={child.name}
-                        href={child.href}
+                        to={child.href}
                         className="block py-2 text-sm text-foreground/70 hover:text-accent transition-colors duration-200"
                       >
                         {child.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
               </div>
             ))}
             <div className="px-4 pt-4 flex flex-col space-y-2">
-              <Button variant="secondary" fullWidth>Sign In</Button>
-              <Button variant="primary" fullWidth>Get Started</Button>
+              <Button variant="secondary" fullWidth as={Link} to="/sign-in">Sign In</Button>
+              <Button variant="primary" fullWidth as={Link} to="/get-started">Get Started</Button>
             </div>
           </div>
         </div>
