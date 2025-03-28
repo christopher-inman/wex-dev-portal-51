@@ -47,7 +47,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
   return (
     <div
       className={cn(
-        'rounded-xl overflow-hidden glass-card transition-all duration-300',
+        'rounded-xl overflow-hidden glass-card transition-all duration-300 h-full flex flex-col',
         getHoverClasses(),
         clickClasses,
         className
