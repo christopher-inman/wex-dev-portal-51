@@ -55,7 +55,13 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
           </div>
         )}
         <div className="mt-auto">
-          <Button variant="text" to={actionLink}>{actionText}</Button>
+          <Button 
+            variant="text" 
+            to={actionLink} 
+            className="font-medium text-wex-blue hover:text-wex-blue/90 dark:text-wex-lightBlue dark:hover:text-white underline-offset-4 hover:underline"
+          >
+            {actionText}
+          </Button>
         </div>
       </div>
     </AnimatedCard>
