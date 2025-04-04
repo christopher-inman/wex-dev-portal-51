@@ -1,0 +1,35 @@
+
+import React, { useState } from 'react';
+import { Search } from 'lucide-react';
+
+const ResourceSearch: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  return (
+    <div className="relative max-w-2xl mx-auto mb-12">
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="Search for resources, guides, code samples..."
+          className="w-full px-5 py-4 pl-12 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-wex-blue/40 text-foreground"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <Search className="absolute top-1/2 left-4 -translate-y-1/2 w-5 h-5 text-foreground/60" />
+      </div>
+      <div className="flex flex-wrap gap-2 mt-3 justify-center">
+        {['API Guide', 'SDK', 'Code Samples', 'Tutorials', 'Documentation'].map((tag) => (
+          <button
+            key={tag}
+            className="px-3 py-1 text-xs rounded-full bg-foreground/5 hover:bg-foreground/10 transition-colors"
+            onClick={() => setSearchQuery(tag)}
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ResourceSearch;

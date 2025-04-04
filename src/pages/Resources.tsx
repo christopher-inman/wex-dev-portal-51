@@ -1,259 +1,242 @@
 
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Book, Code, FileText, BookOpen, BarChart, Globe, Users, Video, Download, PenTool } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import TransitionContainer from '@/components/TransitionContainer';
-import { BookOpen, Code, FileCog, Coffee, Terminal, FileCode, Download, Video } from 'lucide-react';
+import ResourceCard from '@/components/ResourceCard';
+import ApiStatus from '@/components/ApiStatus';
+import Faq from '@/components/Faq';
+import NewsletterSignup from '@/components/NewsletterSignup';
+import ResourceSearch from '@/components/ResourceSearch';
 
-const Resources: React.FC = () => {
+const resources = [
+  {
+    title: 'Developer Guides',
+    description: 'Step-by-step guides for integrating WEX payment solutions into your applications.',
+    icon: BookOpen,
+    tags: ['Documentation', 'Integration'],
+    actionLink: '/guides'
+  },
+  {
+    title: 'SDK Libraries',
+    description: 'Official client libraries in multiple programming languages to simplify development.',
+    icon: Code,
+    tags: ['JavaScript', 'Python', 'Java', 'Ruby', 'PHP', '.NET'],
+    actionLink: '/sdk'
+  },
+  {
+    title: 'Code Samples',
+    description: 'Ready-to-use code examples demonstrating common integration patterns.',
+    icon: FileText,
+    tags: ['Samples', 'Integration'],
+    actionLink: '/code-samples'
+  },
+  {
+    title: 'API Reference',
+    description: 'Complete API documentation with request/response examples and schema definitions.',
+    icon: Book,
+    tags: ['API', 'Reference'],
+    actionLink: '/api-reference'
+  },
+  {
+    title: 'Case Studies',
+    description: 'Learn how other businesses have successfully implemented WEX payment solutions.',
+    icon: BarChart,
+    tags: ['Business', 'Success Stories'],
+    actionLink: '/case-studies'
+  },
+  {
+    title: 'Community Forums',
+    description: 'Connect with other developers and get answers to your integration questions.',
+    icon: Users,
+    tags: ['Community', 'Support'],
+    actionLink: '/community'
+  },
+  {
+    title: 'Video Tutorials',
+    description: 'Watch step-by-step video guides for implementing key features.',
+    icon: Video,
+    tags: ['Tutorials', 'Visual Learning'],
+    actionLink: '/videos'
+  },
+  {
+    title: 'Downloadable Assets',
+    description: 'Access logos, brand assets, and design resources for your integration.',
+    icon: Download,
+    tags: ['Design', 'Assets'],
+    actionLink: '/assets'
+  },
+  {
+    title: 'Blog Articles',
+    description: 'Technical articles, product updates, and best practices from our engineering team.',
+    icon: PenTool,
+    tags: ['Articles', 'Updates'],
+    actionLink: '/blog'
+  }
+];
+
+const Resources = () => {
   return (
-    <>
-      <Helmet>
-        <title>Resources | WEX Developer Portal</title>
-      </Helmet>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="pt-24 min-h-screen">
-        <div className="container-custom">
-          <TransitionContainer className="text-center max-w-3xl mx-auto mb-16">
-            <h5 className="text-sm font-medium text-primary mb-3">DEVELOPER RESOURCES</h5>
-            <h1 className="text-4xl font-bold mb-6">Tools & Resources</h1>
-            <p className="text-lg text-foreground/70">
-              Explore our collection of guides, code samples, SDKs, and tools to accelerate your integration.
-            </p>
-          </TransitionContainer>
-
-          <Tabs defaultValue="guides" className="w-full mb-16">
-            <TabsList className="w-full max-w-3xl mx-auto grid grid-cols-3 mb-8">
-              <TabsTrigger value="guides">API Guides</TabsTrigger>
-              <TabsTrigger value="samples">Code Samples</TabsTrigger>
-              <TabsTrigger value="sdks">SDKs</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="guides">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <TransitionContainer delay={100}>
-                  <Card className="overflow-hidden">
-                    <div className="h-40 bg-gradient-to-r from-wex-orange to-wex-red flex items-center justify-center">
-                      <BookOpen className="h-16 w-16 text-white" />
-                    </div>
-                    <div className="p-6">
-                      <span className="inline-block px-2 py-1 text-xs bg-wex-orange/10 text-wex-orange rounded mb-3">BEGINNER</span>
-                      <h3 className="text-xl font-medium mb-2">Getting Started with Fleet APIs</h3>
-                      <p className="text-sm text-foreground/70 mb-4">Learn the basics of fleet management API integration.</p>
-                      <a href="#" className="text-wex-orange hover:underline font-medium">Read Guide →</a>
-                    </div>
-                  </Card>
-                </TransitionContainer>
-                
-                <TransitionContainer delay={200}>
-                  <Card className="overflow-hidden">
-                    <div className="h-40 bg-gradient-to-r from-wex-lightBlue to-blue-700 flex items-center justify-center">
-                      <Terminal className="h-16 w-16 text-white" />
-                    </div>
-                    <div className="p-6">
-                      <span className="inline-block px-2 py-1 text-xs bg-wex-lightBlue/10 text-wex-lightBlue rounded mb-3">INTERMEDIATE</span>
-                      <h3 className="text-xl font-medium mb-2">Payment Processing Implementation</h3>
-                      <p className="text-sm text-foreground/70 mb-4">Step-by-step guide to implementing secure payment processing.</p>
-                      <a href="#" className="text-wex-lightBlue hover:underline font-medium">Read Guide →</a>
-                    </div>
-                  </Card>
-                </TransitionContainer>
-                
-                <TransitionContainer delay={300}>
-                  <Card className="overflow-hidden">
-                    <div className="h-40 bg-gradient-to-r from-gray-600 to-gray-900 flex items-center justify-center">
-                      <FileCog className="h-16 w-16 text-white" />
-                    </div>
-                    <div className="p-6">
-                      <span className="inline-block px-2 py-1 text-xs bg-gray-200 text-gray-800 rounded mb-3">ADVANCED</span>
-                      <h3 className="text-xl font-medium mb-2">Corporate Payment Workflows</h3>
-                      <p className="text-sm text-foreground/70 mb-4">Advanced guide to building custom payment approval workflows.</p>
-                      <a href="#" className="text-gray-600 hover:underline font-medium">Read Guide →</a>
-                    </div>
-                  </Card>
-                </TransitionContainer>
+      
+      <main className="flex-grow pt-20">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-b from-muted/30 to-background pt-20 pb-12">
+          <div className="container-custom">
+            <TransitionContainer className="text-center max-w-3xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Developer Resources</h1>
+              <p className="text-xl text-foreground/70 mb-12">
+                Everything you need to build, integrate, and scale with WEX payment solutions.
+              </p>
+              
+              <ResourceSearch />
+            </TransitionContainer>
+          </div>
+        </section>
+        
+        {/* Resource Library Section */}
+        <section className="py-12 md:py-16">
+          <div className="container-custom">
+            <TransitionContainer className="mb-12">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                  <h5 className="text-sm font-medium text-wex-blue mb-1">RESOURCE LIBRARY</h5>
+                  <h2 className="text-3xl font-bold">Developer Tools & Resources</h2>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-foreground/70">Filter:</span>
+                  <select className="bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent">
+                    <option value="all">All Resources</option>
+                    <option value="guides">Guides</option>
+                    <option value="code">Code & SDKs</option>
+                    <option value="docs">Documentation</option>
+                    <option value="videos">Videos</option>
+                  </select>
+                </div>
               </div>
-            </TabsContent>
+            </TransitionContainer>
             
-            <TabsContent value="samples">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <TransitionContainer delay={100}>
-                  <Card className="p-6 hover:shadow-md transition-all duration-300 h-full">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-wex-orange/20 flex-shrink-0 flex items-center justify-center">
-                        <FileCode className="h-6 w-6 text-wex-orange" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-medium mb-2">Vehicle Tracking Integration</h3>
-                        <p className="text-sm text-foreground/70 mb-3">Sample code demonstrating integration with the Vehicle Tracking API.</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">JavaScript</span>
-                          <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">React</span>
-                        </div>
-                        <a href="#" className="text-wex-orange hover:underline text-sm font-medium">View Code →</a>
-                      </div>
-                    </div>
-                  </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {resources.map((resource, index) => (
+                <TransitionContainer key={index} delay={index * 100}>
+                  <ResourceCard
+                    title={resource.title}
+                    description={resource.description}
+                    icon={resource.icon}
+                    tags={resource.tags}
+                    actionLink={resource.actionLink}
+                  />
                 </TransitionContainer>
-                
-                <TransitionContainer delay={200}>
-                  <Card className="p-6 hover:shadow-md transition-all duration-300 h-full">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-wex-lightBlue/20 flex-shrink-0 flex items-center justify-center">
-                        <FileCode className="h-6 w-6 text-wex-lightBlue" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-medium mb-2">Payment Processing Demo</h3>
-                        <p className="text-sm text-foreground/70 mb-3">Complete payment processing implementation with tokenization.</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">Java</span>
-                          <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">Spring Boot</span>
-                        </div>
-                        <a href="#" className="text-wex-lightBlue hover:underline text-sm font-medium">View Code →</a>
-                      </div>
-                    </div>
-                  </Card>
-                </TransitionContainer>
-                
-                <TransitionContainer delay={300}>
-                  <Card className="p-6 hover:shadow-md transition-all duration-300 h-full">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-wex-red/20 flex-shrink-0 flex items-center justify-center">
-                        <FileCode className="h-6 w-6 text-wex-red" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-medium mb-2">Virtual Card Management</h3>
-                        <p className="text-sm text-foreground/70 mb-3">Sample code for creating and managing virtual payment cards.</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">C#</span>
-                          <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">.NET Core</span>
-                        </div>
-                        <a href="#" className="text-wex-red hover:underline text-sm font-medium">View Code →</a>
-                      </div>
-                    </div>
-                  </Card>
-                </TransitionContainer>
-              </div>
-            </TabsContent>
+              ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* API Status & FAQ Section */}
+        <section className="py-12 md:py-16 bg-muted/30 dark:bg-muted/10">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <TransitionContainer animation="fade-in-left">
+                <h5 className="text-sm font-medium text-wex-blue mb-1">SYSTEM STATUS</h5>
+                <h2 className="text-3xl font-bold mb-6">API Status</h2>
+                <ApiStatus />
+              </TransitionContainer>
+              
+              <TransitionContainer animation="fade-in-right" delay={200}>
+                <h5 className="text-sm font-medium text-wex-blue mb-1">COMMON QUESTIONS</h5>
+                <h2 className="text-3xl font-bold mb-6">FAQs</h2>
+                <Faq />
+              </TransitionContainer>
+            </div>
+          </div>
+        </section>
+        
+        {/* Community & Support Section */}
+        <section className="py-12 md:py-16">
+          <div className="container-custom">
+            <TransitionContainer className="text-center max-w-3xl mx-auto mb-12">
+              <h5 className="text-sm font-medium text-wex-blue mb-1">JOIN OUR COMMUNITY</h5>
+              <h2 className="text-3xl font-bold mb-4">Connect with other developers</h2>
+              <p className="text-lg text-foreground/70">
+                Share knowledge, ask questions, and collaborate with fellow developers in the WEX community.
+              </p>
+            </TransitionContainer>
             
-            <TabsContent value="sdks">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <TransitionContainer delay={100}>
-                  <Card className="p-6 hover:shadow-md transition-all duration-300 h-full border-wex-orange/30">
-                    <div className="flex justify-between items-start mb-6">
-                      <div className="w-12 h-12 rounded-full bg-wex-orange/20 flex items-center justify-center">
-                        <Code className="h-6 w-6 text-wex-orange" />
-                      </div>
-                      <Download className="h-5 w-5 text-wex-orange" />
-                    </div>
-                    <h3 className="text-xl font-medium mb-2">JavaScript SDK</h3>
-                    <p className="text-sm text-foreground/70 mb-4">Complete SDK for JavaScript applications with TypeScript support.</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">npm</span>
-                      <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">v3.2.1</span>
-                    </div>
-                    <a href="#" className="text-wex-orange hover:underline text-sm font-medium">Installation Guide →</a>
-                  </Card>
-                </TransitionContainer>
-                
-                <TransitionContainer delay={200}>
-                  <Card className="p-6 hover:shadow-md transition-all duration-300 h-full border-wex-lightBlue/30">
-                    <div className="flex justify-between items-start mb-6">
-                      <div className="w-12 h-12 rounded-full bg-wex-lightBlue/20 flex items-center justify-center">
-                        <Coffee className="h-6 w-6 text-wex-lightBlue" />
-                      </div>
-                      <Download className="h-5 w-5 text-wex-lightBlue" />
-                    </div>
-                    <h3 className="text-xl font-medium mb-2">Java SDK</h3>
-                    <p className="text-sm text-foreground/70 mb-4">Java SDK for server-side integration with WEX APIs.</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">Maven</span>
-                      <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">v2.4.0</span>
-                    </div>
-                    <a href="#" className="text-wex-lightBlue hover:underline text-sm font-medium">Installation Guide →</a>
-                  </Card>
-                </TransitionContainer>
-                
-                <TransitionContainer delay={300}>
-                  <Card className="p-6 hover:shadow-md transition-all duration-300 h-full border-wex-red/30">
-                    <div className="flex justify-between items-start mb-6">
-                      <div className="w-12 h-12 rounded-full bg-wex-red/20 flex items-center justify-center">
-                        <Terminal className="h-6 w-6 text-wex-red" />
-                      </div>
-                      <Download className="h-5 w-5 text-wex-red" />
-                    </div>
-                    <h3 className="text-xl font-medium mb-2">Python SDK</h3>
-                    <p className="text-sm text-foreground/70 mb-4">Python library for data analysis and fleet management integration.</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">pip</span>
-                      <span className="px-2 py-1 bg-background rounded-full text-xs border border-border">v1.8.5</span>
-                    </div>
-                    <a href="#" className="text-wex-red hover:underline text-sm font-medium">Installation Guide →</a>
-                  </Card>
-                </TransitionContainer>
-              </div>
-            </TabsContent>
-          </Tabs>
-
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8 text-center">Video Tutorials</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <TransitionContainer delay={100}>
-                <div className="rounded-xl overflow-hidden border border-border">
-                  <div className="aspect-video bg-gray-900 flex items-center justify-center relative">
-                    <Video className="h-12 w-12 text-white absolute opacity-80" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-white font-medium">Getting Started with WEX APIs</h3>
-                    </div>
+                <div className="bg-background rounded-xl border border-border p-6 text-center">
+                  <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center mx-auto mb-4">
+                    <Globe className="w-8 h-8 text-wex-blue" />
                   </div>
-                  <div className="p-4">
-                    <p className="text-sm text-foreground/70 mb-2">Introduction to the WEX API ecosystem and authentication processes.</p>
-                    <span className="text-xs text-foreground/50">15:34 mins</span>
-                  </div>
+                  <h3 className="text-xl font-bold mb-2">Developer Forum</h3>
+                  <p className="text-sm text-foreground/70 mb-6">
+                    Ask questions, share your knowledge, and connect with other WEX developers.
+                  </p>
+                  <a href="#" className="text-wex-blue hover:underline">Visit the forum →</a>
                 </div>
               </TransitionContainer>
               
               <TransitionContainer delay={200}>
-                <div className="rounded-xl overflow-hidden border border-border">
-                  <div className="aspect-video bg-gray-900 flex items-center justify-center relative">
-                    <Video className="h-12 w-12 text-white absolute opacity-80" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-white font-medium">Fleet Management API Tutorial</h3>
-                    </div>
+                <div className="bg-background rounded-xl border border-border p-6 text-center">
+                  <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-wex-orange" />
                   </div>
-                  <div className="p-4">
-                    <p className="text-sm text-foreground/70 mb-2">Step-by-step implementation of vehicle tracking and fuel management.</p>
-                    <span className="text-xs text-foreground/50">23:47 mins</span>
-                  </div>
+                  <h3 className="text-xl font-bold mb-2">Developer Events</h3>
+                  <p className="text-sm text-foreground/70 mb-6">
+                    Join our webinars, workshops, and hackathons to learn and network.
+                  </p>
+                  <a href="#" className="text-wex-blue hover:underline">View upcoming events →</a>
                 </div>
               </TransitionContainer>
               
               <TransitionContainer delay={300}>
-                <div className="rounded-xl overflow-hidden border border-border">
-                  <div className="aspect-video bg-gray-900 flex items-center justify-center relative">
-                    <Video className="h-12 w-12 text-white absolute opacity-80" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-white font-medium">Payment Processing Webinar</h3>
-                    </div>
+                <div className="bg-background rounded-xl border border-border p-6 text-center">
+                  <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center mx-auto mb-4">
+                    <Video className="w-8 h-8 text-wex-red" />
                   </div>
-                  <div className="p-4">
-                    <p className="text-sm text-foreground/70 mb-2">Advanced techniques for secure payment processing and tokenization.</p>
-                    <span className="text-xs text-foreground/50">41:22 mins</span>
-                  </div>
+                  <h3 className="text-xl font-bold mb-2">Video Tutorials</h3>
+                  <p className="text-sm text-foreground/70 mb-6">
+                    Watch step-by-step video guides for implementing key features.
+                  </p>
+                  <a href="#" className="text-wex-blue hover:underline">View tutorial library →</a>
                 </div>
               </TransitionContainer>
             </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="md:col-span-2">
+                <TransitionContainer>
+                  <div className="bg-muted/30 dark:bg-muted/10 rounded-xl p-8">
+                    <h3 className="text-2xl font-bold mb-4">Need specialized support?</h3>
+                    <p className="text-lg mb-6">
+                      Our developer support team is here to help with your integration challenges.
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                      <a href="/support" className="bg-wex-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-wex-blue/90 transition-colors">
+                        Contact Support
+                      </a>
+                      <a href="#" className="bg-background border border-border px-6 py-3 rounded-lg font-medium hover:bg-foreground/5 transition-colors">
+                        Join Slack Community
+                      </a>
+                    </div>
+                  </div>
+                </TransitionContainer>
+              </div>
+              
+              <div>
+                <TransitionContainer delay={200}>
+                  <NewsletterSignup />
+                </TransitionContainer>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
+      
       <Footer />
-    </>
+    </div>
   );
 };
 
