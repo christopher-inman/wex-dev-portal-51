@@ -1,30 +1,21 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Button from './Button';
 import { ThemeToggle } from './ThemeToggle';
 
 const navigationItems = [
-  { name: 'APIs', href: '/apis', hasChildren: true, children: [
-    { name: 'Fleet APIs', href: '/apis#fleet-apis' },
-    { name: 'Payment APIs', href: '/apis#payment-apis' },
-    { name: 'Corporate Payment APIs', href: '/apis#corporate-payment-apis' },
-  ]},
+  { name: 'APIs', href: '/apis' },
   { name: 'Documentation', href: '/documentation' },
-  { name: 'Resources', href: '/resources', hasChildren: true, children: [
-    { name: 'API Guides', href: '/resources#api-guides' },
-    { name: 'Code Samples', href: '/resources#code-samples' },
-    { name: 'SDKs', href: '/resources#sdks' },
-  ]},
+  { name: 'Resources', href: '/resources' },
   { name: 'Support', href: '/support' },
 ];
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,14 +29,6 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleDropdownToggle = (name: string) => {
-    if (openDropdown === name) {
-      setOpenDropdown(null);
-    } else {
-      setOpenDropdown(name);
-    }
-  };
 
   return (
     <nav 
@@ -73,41 +56,9 @@ const Navbar: React.FC = () => {
                   <Link
                     to={item.href}
                     className="nav-link group flex items-center text-foreground hover:text-wex-red transition-colors duration-200"
-                    onClick={item.hasChildren ? (e) => {
-                      e.preventDefault();
-                      handleDropdownToggle(item.name);
-                    } : undefined}
                   >
                     {item.name}
-                    {item.hasChildren && (
-                      <ChevronDown 
-                        className={cn(
-                          "ml-1 w-4 h-4 transition-transform duration-200",
-                          openDropdown === item.name ? "rotate-180" : ""
-                        )} 
-                      />
-                    )}
                   </Link>
-                  {item.hasChildren && (
-                    <div 
-                      className={cn(
-                        "absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-background dark:bg-background ring-1 ring-black/5 dark:ring-white/10 transition-all duration-200 origin-top-left",
-                        openDropdown === item.name ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-                      )}
-                    >
-                      <div className="py-1">
-                        {item.children?.map((child) => (
-                          <Link
-                            key={child.name}
-                            to={child.href}
-                            className="block px-4 py-2 text-sm text-foreground hover:bg-accent/10 hover:text-accent-foreground transition-colors duration-200"
-                          >
-                            {child.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -142,38 +93,13 @@ const Navbar: React.FC = () => {
           <div className="pt-2 pb-4 space-y-1 bg-background dark:bg-background rounded-lg shadow-lg">
             {navigationItems.map((item) => (
               <div key={item.name} className="px-4">
-                <button
-                  onClick={() => item.hasChildren ? handleDropdownToggle(item.name) : null}
+                <Link
+                  to={item.href}
                   className="w-full flex justify-between items-center py-2 text-base font-medium text-foreground hover:text-accent transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  <Link to={item.href}>{item.name}</Link>
-                  {item.hasChildren && (
-                    <ChevronDown 
-                      className={cn(
-                        "ml-1 w-4 h-4 transition-transform duration-200",
-                        openDropdown === item.name ? "rotate-180" : ""
-                      )} 
-                    />
-                  )}
-                </button>
-                {item.hasChildren && (
-                  <div 
-                    className={cn(
-                      "pl-4 mt-1 space-y-1 transition-all duration-200",
-                      openDropdown === item.name ? "block" : "hidden"
-                    )}
-                  >
-                    {item.children?.map((child) => (
-                      <Link
-                        key={child.name}
-                        to={child.href}
-                        className="block py-2 text-sm text-foreground/70 hover:text-accent transition-colors duration-200"
-                      >
-                        {child.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                  {item.name}
+                </Link>
               </div>
             ))}
             <div className="px-4 pt-4 flex flex-col space-y-2">
