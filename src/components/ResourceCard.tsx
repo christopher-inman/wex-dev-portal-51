@@ -12,6 +12,7 @@ interface ResourceCardProps {
   actionLink?: string;
   tags?: string[];
   className?: string;
+  iconColor?: string;
 }
 
 const ResourceCard: React.FC<ResourceCardProps> = ({
@@ -22,12 +23,22 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
   actionLink = "#",
   tags,
   className,
+  iconColor = "#55a9da", // Default to WEX light blue if no color provided
 }) => {
+  // Generate a lighter background color based on the icon color for the container
+  const getBackgroundColor = () => {
+    // Default light background for the WEX light blue
+    return `${iconColor}15`; // 15% opacity version of the color
+  };
+
   return (
     <AnimatedCard className={`p-6 h-full ${className}`} hoverEffect="lift">
       <div className="flex flex-col h-full">
-        <div className="w-12 h-12 rounded-lg bg-foreground/5 flex items-center justify-center mb-4">
-          <Icon className="w-6 h-6 text-wex-blue" />
+        <div 
+          className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
+          style={{ backgroundColor: getBackgroundColor() }}
+        >
+          <Icon className="w-6 h-6" style={{ color: iconColor }} />
         </div>
         <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="text-sm text-foreground/70 mb-6 flex-grow">{description}</p>

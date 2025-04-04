@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Book, Code, FileText, BookOpen, BarChart, Globe, Users, Video, Download, PenTool } from 'lucide-react';
 import Navbar from '@/components/Navbar';
@@ -16,63 +15,72 @@ const resources = [
     description: 'Step-by-step guides for integrating WEX payment solutions into your applications.',
     icon: BookOpen,
     tags: ['Documentation', 'Integration'],
-    actionLink: '/guides'
+    actionLink: '/guides',
+    iconColor: '#F7901E'
   },
   {
     title: 'SDK Libraries',
     description: 'Official client libraries in multiple programming languages to simplify development.',
     icon: Code,
     tags: ['JavaScript', 'Python', 'Java', 'Ruby', 'PHP', '.NET'],
-    actionLink: '/sdk'
+    actionLink: '/sdk',
+    iconColor: '#55a9da'
   },
   {
     title: 'Code Samples',
     description: 'Ready-to-use code examples demonstrating common integration patterns.',
     icon: FileText,
     tags: ['Samples', 'Integration'],
-    actionLink: '/code-samples'
+    actionLink: '/code-samples',
+    iconColor: '#253746'
   },
   {
     title: 'API Reference',
     description: 'Complete API documentation with request/response examples and schema definitions.',
     icon: Book,
     tags: ['API', 'Reference'],
-    actionLink: '/api-reference'
+    actionLink: '/api-reference',
+    iconColor: '#c8102e'
   },
   {
     title: 'Case Studies',
     description: 'Learn how other businesses have successfully implemented WEX payment solutions.',
     icon: BarChart,
     tags: ['Business', 'Success Stories'],
-    actionLink: '/case-studies'
+    actionLink: '/case-studies',
+    iconColor: '#58595B'
   },
   {
     title: 'Community Forums',
     description: 'Connect with other developers and get answers to your integration questions.',
     icon: Users,
     tags: ['Community', 'Support'],
-    actionLink: '/community'
+    actionLink: '/community',
+    iconColor: '#6B7280'
   },
   {
     title: 'Video Tutorials',
     description: 'Watch step-by-step video guides for implementing key features.',
     icon: Video,
     tags: ['Tutorials', 'Visual Learning'],
-    actionLink: '/videos'
+    actionLink: '/videos',
+    iconColor: '#F7901E'
   },
   {
     title: 'Downloadable Assets',
     description: 'Access logos, brand assets, and design resources for your integration.',
     icon: Download,
     tags: ['Design', 'Assets'],
-    actionLink: '/assets'
+    actionLink: '/assets',
+    iconColor: '#55a9da'
   },
   {
     title: 'Blog Articles',
     description: 'Technical articles, product updates, and best practices from our engineering team.',
     icon: PenTool,
     tags: ['Articles', 'Updates'],
-    actionLink: '/blog'
+    actionLink: '/blog',
+    iconColor: '#c8102e'
   }
 ];
 
@@ -127,6 +135,7 @@ const Resources = () => {
                     icon={resource.icon}
                     tags={resource.tags}
                     actionLink={resource.actionLink}
+                    iconColor={resource.iconColor}
                   />
                 </TransitionContainer>
               ))}
