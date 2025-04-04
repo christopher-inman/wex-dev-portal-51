@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState, useMemo } from 'react';
 import { Book, Code, FileText, BookOpen, BarChart, Globe, Users, Video, Download, PenTool } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -14,7 +15,7 @@ const resources = [
     title: 'Developer Guides',
     description: 'Step-by-step guides for integrating WEX payment solutions into your applications.',
     icon: BookOpen,
-    tags: ['Documentation', 'Integration'],
+    tags: ['Documentation', 'Integration', 'API Guide'],
     actionLink: '/guides',
     iconColor: '#F7901E'
   },
@@ -85,6 +86,22 @@ const resources = [
 ];
 
 const Resources = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  // Filter resources based on search query
+  const filteredResources = useMemo(() => {
+    if (!searchQuery) return resources;
+    
+    const query = searchQuery.toLowerCase();
+    return resources.filter(resource => {
+      return (
+        resource.title.toLowerCase().includes(query) ||
+        resource.description.toLowerCase().includes(query) ||
+        (resource.tags && resource.tags.some(tag => tag.toLowerCase().includes(query)))
+      );
+    });
+  }, [searchQuery, resources]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -99,7 +116,7 @@ const Resources = () => {
                 Everything you need to build, integrate, and scale with WEX payment solutions.
               </p>
               
-              <ResourceSearch />
+              <ResourceSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
             </TransitionContainer>
           </div>
         </section>
@@ -115,31 +132,44 @@ const Resources = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="text-foreground/70">Filter:</span>
-                  <select className="bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent">
-                    <option value="all">All Resources</option>
-                    <option value="guides">Guides</option>
-                    <option value="code">Code & SDKs</option>
-                    <option value="docs">Documentation</option>
-                    <option value="videos">Videos</option>
+                  <select 
+                    className="bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    value={searchQuery}
+                  >
+                    <option value="">All Resources</option>
+                    <option value="API Guide">Guides</option>
+                    <option value="Code">Code & SDKs</option>
+                    <option value="Documentation">Documentation</option>
+                    <option value="Video">Videos</option>
                   </select>
                 </div>
               </div>
             </TransitionContainer>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {resources.map((resource, index) => (
-                <TransitionContainer key={index} delay={index * 100}>
-                  <ResourceCard
-                    title={resource.title}
-                    description={resource.description}
-                    icon={resource.icon}
-                    tags={resource.tags}
-                    actionLink={resource.actionLink}
-                    iconColor={resource.iconColor}
-                  />
-                </TransitionContainer>
-              ))}
-            </div>
+            {filteredResources.length === 0 ? (
+              <div className="text-center py-12">
+                <h3 className="text-xl font-medium mb-2">No resources found</h3>
+                <p className="text-foreground/70">
+                  Try adjusting your search query or filters
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredResources.map((resource, index) => (
+                  <TransitionContainer key={index} delay={index * 100}>
+                    <ResourceCard
+                      title={resource.title}
+                      description={resource.description}
+                      icon={resource.icon}
+                      tags={resource.tags}
+                      actionLink={resource.actionLink}
+                      iconColor={resource.iconColor}
+                    />
+                  </TransitionContainer>
+                ))}
+              </div>
+            )}
           </div>
         </section>
         
