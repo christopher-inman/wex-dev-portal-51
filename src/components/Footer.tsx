@@ -49,7 +49,11 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-wex-blue">WEX</span>
+              <img 
+                src="/lovable-uploads/cac1cddb-1b5c-4a5c-bba1-c0aa49e52692.png" 
+                alt="WEX" 
+                className="h-7" 
+              />
               <span className="ml-2 text-lg font-medium text-foreground/90">Developer Portal</span>
             </div>
             <p className="text-foreground/70 mb-6 max-w-md">
