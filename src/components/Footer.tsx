@@ -1,14 +1,7 @@
 
 import React from 'react';
-import { Github, Twitter, Linkedin, Youtube, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const socialLinks = [
-  { name: 'GitHub', icon: Github, href: '#' },
-  { name: 'Twitter', icon: Twitter, href: '#' },
-  { name: 'LinkedIn', icon: Linkedin, href: '#' },
-  { name: 'YouTube', icon: Youtube, href: '#' },
-];
 
 const footerLinks = [
   {
@@ -62,18 +55,6 @@ const Footer: React.FC = () => {
             <p className="text-foreground/70 mb-6 max-w-md">
               Access the tools and documentation you need to integrate WEX's industry-leading payment processing technologies into your applications.
             </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center text-foreground/60 hover:bg-wex-blue hover:text-white transition-all duration-200"
-                  aria-label={social.name}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {footerLinks.map((group) => (
