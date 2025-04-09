@@ -43,7 +43,11 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-wex-red dark:text-wex-red">WEX</span>
+              <img 
+                src="/lovable-uploads/3f4520dd-0209-4ee2-9cc2-ff17a9204022.png" 
+                alt="WEX" 
+                className="h-8" 
+              />
               <span className="ml-2 text-lg font-medium text-foreground">Developer Portal</span>
             </Link>
           </div>
