@@ -4,6 +4,7 @@ import Button from './Button';
 import { ArrowRight, Code, Database, Key } from 'lucide-react';
 import TransitionContainer from './TransitionContainer';
 import { initPrism } from '@/utils/prismHighlight';
+import { AuroraBackground } from './ui/aurora-background';
 
 const Hero: React.FC = () => {
   useEffect(() => {
@@ -12,18 +13,11 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden min-h-screen pt-20 flex items-center bg-background dark:bg-background">
-      {/* Abstract shapes */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 dark:bg-primary/10"></div>
-        <div className="absolute top-20 left-20 w-40 h-40 rounded-full bg-secondary/5 dark:bg-secondary/10"></div>
-        <div className="absolute bottom-40 right-20 w-60 h-60 rounded-full bg-primary/5 dark:bg-primary/10"></div>
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-secondary/5 dark:bg-secondary/10"></div>
-        
-        {/* Accent lines */}
-        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent dark:via-primary/30"></div>
-        <div className="absolute top-2/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent dark:via-secondary/30"></div>
-      </div>
+    <div className="relative overflow-hidden min-h-screen pt-20 flex items-center">
+      {/* Aurora Background */}
+      <AuroraBackground className="absolute inset-0 z-0">
+        {/* The AuroraBackground component manages its own content */}
+      </AuroraBackground>
       
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

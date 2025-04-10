@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,6 +45,16 @@
     --sidebar-primary: 348 87% 43%;
     --sidebar-primary-foreground: 210 40% 98%;
     --sidebar-ring: 222.2 84% 4.9%;
+
+    /* Aurora Background Variables */
+    --white: rgba(255, 255, 255, 1);
+    --black: rgba(0, 0, 0, 1);
+    --transparent: rgba(255, 255, 255, 0);
+    --blue-300: rgba(147, 197, 253, 1);
+    --blue-400: rgba(96, 165, 250, 1);
+    --blue-500: rgba(59, 130, 246, 1);
+    --indigo-300: rgba(165, 180, 252, 1);
+    --violet-200: rgba(221, 214, 254, 1);
   }
 
   .dark {
