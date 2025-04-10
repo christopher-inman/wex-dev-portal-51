@@ -1,19 +1,15 @@
-
 import React, { useEffect } from 'react';
 import Button from './Button';
 import { ArrowRight, Code, Database, Key } from 'lucide-react';
 import TransitionContainer from './TransitionContainer';
 import { initPrism } from '@/utils/prismHighlight';
 import { AuroraBackground } from './ui/aurora-background';
-
 const Hero: React.FC = () => {
   useEffect(() => {
     // Initialize Prism for syntax highlighting
     initPrism();
   }, []);
-
-  return (
-    <div className="relative overflow-hidden min-h-screen pt-20 flex items-center">
+  return <div className="relative overflow-hidden min-h-screen pt-20 flex items-center">
       {/* Aurora Background */}
       <AuroraBackground className="absolute inset-0 z-0">
         {/* We need to provide children to satisfy the component interface */}
@@ -22,10 +18,7 @@ const Hero: React.FC = () => {
       
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <TransitionContainer 
-            className="flex flex-col items-start text-left" 
-            animation="fade-in-left"
-          >
+          <TransitionContainer className="flex flex-col items-start text-left" animation="fade-in-left">
             <div className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
               WEX Developer Portal
             </div>
@@ -36,28 +29,14 @@ const Hero: React.FC = () => {
               Access the tools and documentation you need to integrate WEX's industry-leading payment, fleet, and benefits processing technologies into your applications.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button 
-                variant="primary" 
-                size="lg"
-                icon={<ArrowRight className="w-5 h-5" />}
-                iconPosition="right"
-              >
-                Get Started
-              </Button>
-              <Button 
-                variant="secondary" 
-                size="lg"
-              >
+              <Button variant="primary" size="lg" icon={<ArrowRight className="w-5 h-5" />} iconPosition="right">Get Started</Button>
+              <Button variant="secondary" size="lg">
                 Explore APIs
               </Button>
             </div>
           </TransitionContainer>
 
-          <TransitionContainer 
-            className="flex justify-center" 
-            animation="fade-in-right" 
-            delay={300}
-          >
+          <TransitionContainer className="flex justify-center" animation="fade-in-right" delay={300}>
             <div className="relative glass-card rounded-2xl p-6 w-full max-w-lg border-2 border-white/10 dark:border-white/5 shadow-lg">
               <div className="absolute -top-2 -right-2 bg-primary text-white text-xs px-3 py-1 rounded-full font-medium">
                 REST APIs
@@ -73,7 +52,7 @@ const Hero: React.FC = () => {
                 </div>
                 <pre className="text-sm overflow-auto max-h-80 p-4 m-0">
                   <code className="language-javascript">
-{`// Example API request
+                  {`// Example API request
 const response = await fetch(
   'https://api.wex.com/v1/payments',
   {
@@ -117,8 +96,6 @@ console.log(data);`}
           </TransitionContainer>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Hero;
