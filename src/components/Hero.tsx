@@ -16,7 +16,8 @@ const Hero: React.FC = () => {
     <div className="relative overflow-hidden min-h-screen pt-20 flex items-center">
       {/* Aurora Background */}
       <AuroraBackground className="absolute inset-0 z-0">
-        {/* Empty children prop to satisfy the interface requirement */}
+        {/* We need to provide children to satisfy the component interface */}
+        <div className="sr-only">Background aurora effect</div>
       </AuroraBackground>
       
       <div className="container-custom relative z-10">

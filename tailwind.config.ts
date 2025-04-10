@@ -131,7 +131,7 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'scale': 'scale 0.4s ease-out forwards',
 				'pulse-soft': 'pulse-soft 3s infinite',
-				aurora: 'aurora 20s linear infinite', // Changed from 10s to 20s to make it run at half speed
+				aurora: 'aurora 20s linear infinite', // Kept at 20s for half speed as requested
 			}
 		}
 	},
