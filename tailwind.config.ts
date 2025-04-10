@@ -81,11 +81,11 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
-				'accordion-down': {
+				"accordion-down": {
 					from: { height: '0' },
 					to: { height: 'var(--radix-accordion-content-height)' }
 				},
-				'accordion-up': {
+				"accordion-up": {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' }
 				},
@@ -112,7 +112,15 @@ export default {
 				'pulse-soft': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' }
-				}
+				},
+				aurora: {
+					from: {
+						backgroundPosition: '50% 50%, 50% 50%',
+					},
+					to: {
+						backgroundPosition: '350% 50%, 350% 50%',
+					},
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -122,7 +130,8 @@ export default {
 				'fade-in-left': 'fade-in-left 0.5s ease-out forwards',
 				'float': 'float 6s ease-in-out infinite',
 				'scale': 'scale 0.4s ease-out forwards',
-				'pulse-soft': 'pulse-soft 3s infinite'
+				'pulse-soft': 'pulse-soft 3s infinite',
+				aurora: 'aurora 20s linear infinite', // Changed from 10s to 20s to make it run at half speed
 			}
 		}
 	},
