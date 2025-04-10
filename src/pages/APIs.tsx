@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ApiCard from '@/components/ApiCard';
 import TransitionContainer from '@/components/TransitionContainer';
-import { CreditCard, ShieldCheck, BarChart, Globe, Database, Wallet, Truck, Fuel, Heart, MedicalCross, Award } from 'lucide-react';
+import { CreditCard, ShieldCheck, BarChart, Globe, Database, Wallet, Truck, Fuel, Heart } from 'lucide-react';
 
 const apiCategoriesData = {
   fleet: [
@@ -73,32 +73,9 @@ const apiCategoriesData = {
     {
       title: 'Benefits Enrollment API',
       description: 'Streamline the benefits enrollment process for employees.',
-      icon: Award,
+      icon: BarChart,
       features: ['Plan selection', 'Dependent management', 'Coverage updates'],
       iconColor: '#c8102e',
-    },
-  ],
-  corporate: [
-    {
-      title: 'Expense Management API',
-      description: 'Streamline expense reporting and approval workflows.',
-      icon: Wallet,
-      features: ['Receipt capture', 'Policy enforcement', 'Approval routing'],
-      iconColor: '#55a9da',
-    },
-    {
-      title: 'Virtual Card API',
-      description: 'Generate and manage virtual cards for secure payments.',
-      icon: CreditCard,
-      features: ['Single-use cards', 'Spend controls', 'Vendor-specific cards'],
-      iconColor: '#55a9da',
-    },
-    {
-      title: 'Approval Workflow API',
-      description: 'Configure custom approval workflows for payment processes.',
-      icon: BarChart,
-      features: ['Multi-level approvals', 'Delegation', 'Audit trails'],
-      iconColor: '#55a9da',
     },
   ],
 };
@@ -121,11 +98,10 @@ const APIs: React.FC = () => {
           </TransitionContainer>
 
           <Tabs defaultValue="fleet" className="w-full mb-16">
-            <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-4 mb-8">
+            <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-3 mb-8">
               <TabsTrigger value="fleet">Fleet APIs</TabsTrigger>
               <TabsTrigger value="payment">Payment APIs</TabsTrigger>
               <TabsTrigger value="benefits">Benefits APIs</TabsTrigger>
-              <TabsTrigger value="corporate">Corporate APIs</TabsTrigger>
             </TabsList>
             
             <TabsContent value="fleet">
@@ -165,23 +141,6 @@ const APIs: React.FC = () => {
             <TabsContent value="benefits">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {apiCategoriesData.benefits.map((api, index) => (
-                  <TransitionContainer key={api.title} delay={100 * (index % 3)}>
-                    <ApiCard
-                      title={api.title}
-                      description={api.description}
-                      icon={api.icon}
-                      features={api.features}
-                      variant={index === 0 ? 'featured' : 'default'}
-                      iconColor={api.iconColor}
-                    />
-                  </TransitionContainer>
-                ))}
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="corporate">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {apiCategoriesData.corporate.map((api, index) => (
                   <TransitionContainer key={api.title} delay={100 * (index % 3)}>
                     <ApiCard
                       title={api.title}

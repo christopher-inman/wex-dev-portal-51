@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CreditCard, ShieldCheck, BarChart, Globe, Database, Wallet, Truck, Fuel, HelpCircle, Heart, MedicalCross, Award } from 'lucide-react';
+import { CreditCard, ShieldCheck, BarChart, Globe, Database, Wallet, Truck, Fuel, HelpCircle, Heart, Award } from 'lucide-react';
 import ApiCard from './ApiCard';
 import TransitionContainer from './TransitionContainer';
 
