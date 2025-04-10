@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ApiCard from '@/components/ApiCard';
 import TransitionContainer from '@/components/TransitionContainer';
-import { CreditCard, ShieldCheck, BarChart, Globe, Database, Wallet, Truck, Fuel } from 'lucide-react';
+import { CreditCard, ShieldCheck, BarChart, Globe, Database, Wallet, Truck, Fuel, Heart, MedicalCross, Award } from 'lucide-react';
 
 const apiCategoriesData = {
   fleet: [
@@ -55,6 +55,29 @@ const apiCategoriesData = {
       iconColor: '#55a9da',
     },
   ],
+  benefits: [
+    {
+      title: 'Healthcare Claims API',
+      description: 'Process and manage healthcare claims for employee benefits.',
+      icon: Heart,
+      features: ['EOB processing', 'Claim status tracking', 'Provider network integration'],
+      iconColor: '#c8102e',
+    },
+    {
+      title: 'HSA/FSA Management API',
+      description: 'Manage health savings and flexible spending accounts.',
+      icon: Wallet,
+      features: ['Account balance', 'Eligible expenses', 'Transaction history'],
+      iconColor: '#c8102e',
+    },
+    {
+      title: 'Benefits Enrollment API',
+      description: 'Streamline the benefits enrollment process for employees.',
+      icon: Award,
+      features: ['Plan selection', 'Dependent management', 'Coverage updates'],
+      iconColor: '#c8102e',
+    },
+  ],
   corporate: [
     {
       title: 'Expense Management API',
@@ -93,15 +116,16 @@ const APIs: React.FC = () => {
             <h5 className="text-sm font-medium text-primary mb-3">API SOLUTIONS</h5>
             <h1 className="text-4xl font-bold mb-6">Powerful APIs for Your Business</h1>
             <p className="text-lg text-foreground/70">
-              Explore our comprehensive suite of APIs designed to help you build innovative payment and fleet management solutions.
+              Explore our comprehensive suite of APIs designed to help you build innovative payment, fleet, and benefits management solutions.
             </p>
           </TransitionContainer>
 
           <Tabs defaultValue="fleet" className="w-full mb-16">
-            <TabsList className="grid w-full max-w-3xl mx-auto grid-cols-3 mb-8">
+            <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-4 mb-8">
               <TabsTrigger value="fleet">Fleet APIs</TabsTrigger>
               <TabsTrigger value="payment">Payment APIs</TabsTrigger>
-              <TabsTrigger value="corporate">Corporate Payment APIs</TabsTrigger>
+              <TabsTrigger value="benefits">Benefits APIs</TabsTrigger>
+              <TabsTrigger value="corporate">Corporate APIs</TabsTrigger>
             </TabsList>
             
             <TabsContent value="fleet">
@@ -124,6 +148,23 @@ const APIs: React.FC = () => {
             <TabsContent value="payment">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {apiCategoriesData.payment.map((api, index) => (
+                  <TransitionContainer key={api.title} delay={100 * (index % 3)}>
+                    <ApiCard
+                      title={api.title}
+                      description={api.description}
+                      icon={api.icon}
+                      features={api.features}
+                      variant={index === 0 ? 'featured' : 'default'}
+                      iconColor={api.iconColor}
+                    />
+                  </TransitionContainer>
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="benefits">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {apiCategoriesData.benefits.map((api, index) => (
                   <TransitionContainer key={api.title} delay={100 * (index % 3)}>
                     <ApiCard
                       title={api.title}

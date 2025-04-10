@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CreditCard, ShieldCheck, BarChart, Globe, Database, Wallet, Truck, Fuel, HelpCircle } from 'lucide-react';
+import { CreditCard, ShieldCheck, BarChart, Globe, Database, Wallet, Truck, Fuel, HelpCircle, Heart, MedicalCross, Award } from 'lucide-react';
 import ApiCard from './ApiCard';
 import TransitionContainer from './TransitionContainer';
 
@@ -10,7 +10,7 @@ const apiCategories = [
     description: 'APIs to manage your fleet cards, transactions, and reporting.',
     icon: Truck,
     features: ['Vehicle tracking', 'Fuel management', 'Card controls'],
-    featured: true,
+    featured: false,
     iconColor: '#F7901E', // WEX orange for fleet
   },
   {
@@ -21,11 +21,19 @@ const apiCategories = [
     iconColor: '#55a9da', // WEX light blue for payments
   },
   {
+    title: 'Benefits APIs',
+    description: 'Manage and integrate employee health and wellness benefits.',
+    icon: Heart,
+    features: ['Healthcare claims', 'HSA/FSA management', 'Benefits enrollment'],
+    featured: true,
+    iconColor: '#c8102e', // WEX red for benefits
+  },
+  {
     title: 'Fuel APIs',
     description: 'Access real-time fuel pricing and location data.',
     icon: Fuel,
     features: ['Price forecasting', 'Location services', 'Fuel efficiency'],
-    iconColor: '#c8102e', // WEX red for fuel
+    iconColor: '#F7901E', // WEX orange for fuel
   },
   {
     title: 'Corporate Payment APIs',
@@ -41,13 +49,6 @@ const apiCategories = [
     features: ['Custom reports', 'Data visualization', 'Trend analysis'],
     iconColor: '#253746', // WEX blue for analytics
   },
-  {
-    title: 'Global Commerce APIs',
-    description: 'Expand your business globally with our international payment solutions.',
-    icon: Globe,
-    features: ['Multi-currency', 'FX rates', 'Global compliance'],
-    iconColor: '#58595B', // WEX grey for global commerce
-  },
 ];
 
 const Features: React.FC = () => {
@@ -58,7 +59,7 @@ const Features: React.FC = () => {
           <h5 className="text-sm font-medium text-primary mb-3">POWERFUL & FLEXIBLE</h5>
           <h2 className="text-4xl font-bold mb-6">Industry-Leading APIs</h2>
           <p className="text-lg text-foreground/70">
-            Build innovative payment solutions with our comprehensive suite of APIs designed for developers by developers.
+            Build innovative payment, fleet, and benefits solutions with our comprehensive suite of APIs designed for developers by developers.
           </p>
         </TransitionContainer>
 

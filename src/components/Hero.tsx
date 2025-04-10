@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
               Build powerful <span className="text-gradient">payment solutions</span> with our APIs
             </h1>
             <p className="text-lg text-foreground/80 mb-8 max-w-xl">
-              Access the tools and documentation you need to integrate WEX's industry-leading payment processing technologies into your applications.
+              Access the tools and documentation you need to integrate WEX's industry-leading payment, fleet, and benefits processing technologies into your applications.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
