@@ -345,7 +345,7 @@ const Index = () => {
               <div className="glass-card p-12 rounded-2xl bg-card/70 backdrop-blur-sm border border-border/50 shadow-lg">
                 <h2 className="text-4xl font-bold mb-6">Ready to start building?</h2>
                 <p className="text-lg text-foreground/70 mb-8 max-w-2xl mx-auto">
-                  Join thousands of developers who are already creating innovative payment solutions with WEX APIs.
+                  Join thousands of developers who are already creating innovative solutions with WEX APIs.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                   <Button variant="primary" size="lg">
