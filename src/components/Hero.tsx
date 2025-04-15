@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
               WEX Developer Portal
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Build powerful <span className="text-gradient">payment solutions</span> with our APIs
+              Build powerful <span className="text-gradient"> solutions</span> with WEX APIs
             </h1>
             <p className="text-lg text-foreground/80 mb-8 max-w-xl">
               Access the tools and documentation you need to integrate WEX's industry-leading payment, fleet, and benefits processing technologies into your applications.
