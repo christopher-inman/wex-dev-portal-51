@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { LucideIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import AnimatedCard from './AnimatedCard';
-import Button from './Button';
 
 interface ResourceCardProps {
   title: string;
@@ -11,6 +10,7 @@ interface ResourceCardProps {
   actionText?: string;
   actionLink?: string;
   tags?: string[];
+  features?: string[];
   className?: string;
   iconColor?: string;
 }
@@ -22,26 +22,36 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
   actionText = "View Resource",
   actionLink = "#",
   tags,
+  features,
   className,
-  iconColor = "#55a9da", // Default to WEX light blue if no color provided
+  iconColor = "#55a9da",
 }) => {
-  // Generate a lighter background color based on the icon color for the container
-  const getBackgroundColor = () => {
-    // Default light background for the WEX light blue
-    return `${iconColor}15`; // 15% opacity version of the color
-  };
-
   return (
     <AnimatedCard className={`p-6 h-full ${className}`} hoverEffect="lift">
       <div className="flex flex-col h-full">
         <div 
           className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-          style={{ backgroundColor: getBackgroundColor() }}
+          style={{ backgroundColor: `${iconColor}15` }}
         >
           <Icon className="w-6 h-6" style={{ color: iconColor }} />
         </div>
         <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-sm text-foreground/70 mb-6 flex-grow">{description}</p>
+        <p className="text-sm text-foreground/70 mb-4">{description}</p>
+        
+        {features && features.length > 0 && (
+          <ul className="mb-6 space-y-2">
+            {features.map((feature, index) => (
+              <li key={index} className="flex items-center text-sm">
+                <span 
+                  className="w-1.5 h-1.5 rounded-full mr-2"
+                  style={{ backgroundColor: iconColor }}
+                ></span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        )}
+
         {tags && tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
             {tags.map((tag) => (
@@ -54,14 +64,14 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
             ))}
           </div>
         )}
+
         <div className="mt-auto">
-          <Button 
-            variant="text" 
+          <Link 
             to={actionLink} 
-            className="font-medium text-wex-blue hover:text-wex-blue/90 dark:text-wex-lightBlue dark:hover:text-white underline-offset-4 hover:underline"
+            className="text-wex-red hover:underline font-medium inline-flex items-center"
           >
-            {actionText}
-          </Button>
+            {actionText} →
+          </Link>
         </div>
       </div>
     </AnimatedCard>
