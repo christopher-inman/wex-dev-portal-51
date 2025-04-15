@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -8,17 +7,39 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Helmet } from "react-helmet";
 import ScrollToTop from "./components/ScrollToTop";
-import Index from "./pages/Index";
-import APIs from "./pages/APIs";
-import Documentation from "./pages/Documentation";
-import Resources from "./pages/Resources";
-import Support from "./pages/Support";
-import SignIn from "./pages/SignIn";
-import GetStarted from "./pages/GetStarted";
-import NotFound from "./pages/NotFound";
+
+// Page Components
+import {
+  Index,
+  APIs,
+  Documentation,
+  Resources,
+  Support,
+  SignIn,
+  GetStarted,
+  NotFound,
+  DeveloperGuides,
+  SDKLibraries,
+  CodeSamples,
+  APIReference,
+  CaseStudies,
+  Community,
+  VideoTutorials,
+  DownloadableAssets,
+  BlogArticles,
+} from "./pages";
 
 // Create a client
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000, // 1 minute
+      cacheTime: 5 * 60 * 1000, // 5 minutes
+      retry: 2,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -33,6 +54,7 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <Routes>
+            {/* Main Routes */}
             <Route path="/" element={<Index />} />
             <Route path="/apis" element={<APIs />} />
             <Route path="/documentation" element={<Documentation />} />
@@ -40,7 +62,19 @@ const App = () => (
             <Route path="/support" element={<Support />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/get-started" element={<GetStarted />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            
+            {/* Resource Section Routes */}
+            <Route path="/guides" element={<DeveloperGuides />} />
+            <Route path="/sdk" element={<SDKLibraries />} />
+            <Route path="/code-samples" element={<CodeSamples />} />
+            <Route path="/api-reference" element={<APIReference />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="/videos" element={<VideoTutorials />} />
+            <Route path="/assets" element={<DownloadableAssets />} />
+            <Route path="/blog" element={<BlogArticles />} />
+            
+            {/* Catch-all route for 404 */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

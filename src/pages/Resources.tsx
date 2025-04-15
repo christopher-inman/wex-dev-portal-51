@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Book, Code, FileText, BookOpen, BarChart, Globe, Users, Video, Download, PenTool } from 'lucide-react';
 import Navbar from '@/components/Navbar';
@@ -13,59 +12,108 @@ import ResourceSearch from '@/components/ResourceSearch';
 const resources = [
   {
     title: 'Developer Guides',
-    description: 'Step-by-step guides for integrating WEX payment solutions into your applications.',
+    description: 'Comprehensive documentation covering core concepts, best practices, and step-by-step tutorials.',
     icon: BookOpen,
     tags: ['Documentation', 'Integration', 'API Guide'],
     actionLink: '/guides',
-    iconColor: '#F7901E'
+    iconColor: '#F7901E',
+    features: [
+      'Getting Started Guide',
+      'Authentication & Security',
+      'API Best Practices',
+      'Integration Patterns',
+      'Troubleshooting Guide'
+    ]
   },
   {
     title: 'SDK Libraries',
-    description: 'Official client libraries in multiple programming languages to simplify development.',
+    description: 'Official client libraries and SDKs in multiple programming languages with complete documentation.',
     icon: Code,
     tags: ['JavaScript', 'Python', 'Java', 'Ruby', 'PHP', '.NET'],
     actionLink: '/sdk',
-    iconColor: '#55a9da'
+    iconColor: '#55a9da',
+    features: [
+      'Installation Guides',
+      'API Reference',
+      'Code Examples',
+      'Version Compatibility',
+      'GitHub Repositories'
+    ]
   },
   {
     title: 'Code Samples',
-    description: 'Ready-to-use code examples demonstrating common integration patterns.',
+    description: 'Ready-to-use code examples demonstrating key features and common integration patterns.',
     icon: FileText,
     tags: ['Samples', 'Integration'],
     actionLink: '/code-samples',
-    iconColor: '#253746'
+    iconColor: '#253746',
+    features: [
+      'Payment Processing',
+      'Fleet Management',
+      'Benefits Integration',
+      'Error Handling',
+      'Testing Examples'
+    ]
   },
   {
     title: 'API Reference',
-    description: 'Complete API documentation with request/response examples and schema definitions.',
+    description: 'Complete API documentation with detailed endpoint descriptions, parameters, and response formats.',
     icon: Book,
     tags: ['API', 'Reference'],
     actionLink: '/api-reference',
-    iconColor: '#c8102e'
+    iconColor: '#cf1f39',
+    features: [
+      'Endpoint Documentation',
+      'Request/Response Examples',
+      'Error Codes',
+      'Authentication Guide',
+      'Rate Limits'
+    ]
   },
   {
     title: 'Case Studies',
-    description: 'Learn how other businesses have successfully implemented WEX payment solutions.',
+    description: 'Real-world implementation examples and success stories from WEX API integrations.',
     icon: BarChart,
     tags: ['Business', 'Success Stories'],
     actionLink: '/case-studies',
-    iconColor: '#58595B'
+    iconColor: '#58595B',
+    features: [
+      'Implementation Stories',
+      'Technical Details',
+      'Business Impact',
+      'Best Practices',
+      'Customer Testimonials'
+    ]
   },
   {
     title: 'Community Forums',
-    description: 'Connect with other developers and get answers to your integration questions.',
+    description: 'Connect with other developers, share knowledge, and get help with your integration.',
     icon: Users,
     tags: ['Community', 'Support'],
     actionLink: '/community',
-    iconColor: '#6B7280'
+    iconColor: '#6B7280',
+    features: [
+      'Discussion Boards',
+      'Knowledge Base',
+      'Feature Requests',
+      'Bug Reports',
+      'Developer Showcase'
+    ]
   },
   {
     title: 'Video Tutorials',
-    description: 'Watch step-by-step video guides for implementing key features.',
+    description: 'Step-by-step video guides covering implementation details and best practices.',
     icon: Video,
     tags: ['Tutorials', 'Visual Learning'],
     actionLink: '/videos',
-    iconColor: '#F7901E'
+    iconColor: '#F7901E',
+    features: [
+      'Getting Started',
+      'Advanced Topics',
+      'Integration Guides',
+      'Best Practices',
+      'Troubleshooting'
+    ]
   },
   {
     title: 'Downloadable Assets',
@@ -73,7 +121,14 @@ const resources = [
     icon: Download,
     tags: ['Design', 'Assets'],
     actionLink: '/assets',
-    iconColor: '#55a9da'
+    iconColor: '#55a9da',
+    features: [
+      'Brand Guidelines',
+      'Logo Package',
+      'UI Components',
+      'Design Templates',
+      'Icon Library'
+    ]
   },
   {
     title: 'Blog Articles',
@@ -81,14 +136,20 @@ const resources = [
     icon: PenTool,
     tags: ['Articles', 'Updates'],
     actionLink: '/blog',
-    iconColor: '#c8102e'
+    iconColor: '#cf1f39',
+    features: [
+      'Technical Deep Dives',
+      'Product Updates',
+      'Integration Tips',
+      'Industry Insights',
+      'Release Notes'
+    ]
   }
 ];
 
-const Resources = () => {
+const Resources: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   
-  // Filter resources based on search query
   const filteredResources = useMemo(() => {
     if (!searchQuery) return resources;
     
@@ -100,7 +161,7 @@ const Resources = () => {
         (resource.tags && resource.tags.some(tag => tag.toLowerCase().includes(query)))
       );
     });
-  }, [searchQuery, resources]);
+  }, [searchQuery]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -163,6 +224,7 @@ const Resources = () => {
                       description={resource.description}
                       icon={resource.icon}
                       tags={resource.tags}
+                      features={resource.features}
                       actionLink={resource.actionLink}
                       iconColor={resource.iconColor}
                     />
@@ -213,7 +275,7 @@ const Resources = () => {
                   <p className="text-sm text-foreground/70 mb-6">
                     Ask questions, share your knowledge, and connect with other WEX developers.
                   </p>
-                  <a href="#" className="text-wex-blue hover:underline">Visit the forum →</a>
+                  <a href="#" className="text-wex-red hover:underline">Visit the forum →</a>
                 </div>
               </TransitionContainer>
               
@@ -226,7 +288,7 @@ const Resources = () => {
                   <p className="text-sm text-foreground/70 mb-6">
                     Join our webinars, workshops, and hackathons to learn and network.
                   </p>
-                  <a href="#" className="text-wex-blue hover:underline">View upcoming events →</a>
+                  <a href="#" className="text-wex-red hover:underline">View upcoming events →</a>
                 </div>
               </TransitionContainer>
               
@@ -239,7 +301,7 @@ const Resources = () => {
                   <p className="text-sm text-foreground/70 mb-6">
                     Watch step-by-step video guides for implementing key features.
                   </p>
-                  <a href="#" className="text-wex-blue hover:underline">View tutorial library →</a>
+                  <a href="#" className="text-wex-red hover:underline">View tutorial library →</a>
                 </div>
               </TransitionContainer>
             </div>

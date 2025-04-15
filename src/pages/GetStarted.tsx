@@ -107,7 +107,7 @@ const GetStarted: React.FC = () => {
                   <div className="flex items-start gap-2">
                     <Checkbox id="terms" className="mt-1" />
                     <label htmlFor="terms" className="text-sm text-foreground/70">
-                      I agree to the <a href="#" className="text-wex-lightBlue hover:underline">Terms of Service</a> and <a href="#" className="text-wex-lightBlue hover:underline">Privacy Policy</a>
+                      I agree to the <a href="#" className="text-wex-red hover:underline">Terms of Service</a> and <a href="#" className="text-wex-red hover:underline">Privacy Policy</a>
                     </label>
                   </div>
                   
@@ -116,7 +116,7 @@ const GetStarted: React.FC = () => {
                 
                 <div className="mt-6 pt-6 border-t border-border text-center text-sm">
                   <span className="text-foreground/70">Already have an account?</span>{" "}
-                  <Link to="/sign-in" className="text-wex-orange hover:underline font-medium">
+                  <Link to="/sign-in" className="text-wex-red hover:underline font-medium">
                     Sign in
                   </Link>
                 </div>

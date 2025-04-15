@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -58,7 +57,7 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				wex: {
-					red: '#c8102e',
+					red: '#cf1f39',
 					blue: '#253746',
 					lightBlue: '#55a9da',
 					orange: '#F7901E',
@@ -131,7 +130,7 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'scale': 'scale 0.4s ease-out forwards',
 				'pulse-soft': 'pulse-soft 3s infinite',
-				aurora: 'aurora 20s linear infinite', // Kept at 20s for half speed as requested
+				aurora: 'aurora 25s linear infinite', // Increased from 20s to 25s (25% slower)
 			}
 		}
 	},
