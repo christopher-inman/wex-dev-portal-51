@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
               <img 
-                src="/lovable-uploads/cac1cddb-1b5c-4a5c-bba1-c0aa49e52692.png" 
+                 src="/uploads/wex-logo.svg"
                 alt="WEX" 
                 className="h-7" 
               />
